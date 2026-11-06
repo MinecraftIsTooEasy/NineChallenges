@@ -1,9 +1,6 @@
 package vbonedra.nine_challenges.gui;
 
-import net.minecraft.GuiButton;
-import net.minecraft.GuiScreen;
-import net.minecraft.I18n;
-import net.minecraft.ResourceLocation;
+import net.minecraft.*;
 import vbonedra.nine_challenges.challenge.Challenge;
 import vbonedra.nine_challenges.challenge.ChallengeHolder;
 import vbonedra.nine_challenges.challenge.Challenges;
@@ -18,19 +15,22 @@ public class ChallengesGui extends GuiScreen {
     private static final int listPosY = 30;
     private static final int rowHeight = 22;
     private static final int panelPosX = 190;
-    // we can be sure that -1 is free, but cant be sure about 0..8+ because challenges use them
     private static final int DONE_ID = -1;
 
     private final GuiScreen parent;
     private final ChallengeHolder holder;
+    private final boolean isReadOnly;
     private Challenge selected = Challenge.values()[0];
 
     public ChallengesGui(GuiScreen parent) {
         this.parent = parent;
         this.holder = Challenges.holder(parent);
+        this.isReadOnly = false;
     }
+
     public ChallengesGui(GuiScreen parent, int mask) {
         this.parent = parent;
+        this.isReadOnly = true;
         this.holder = new ChallengeHolder() {
             @Override
             public int nineChallenges$getChallengeMask() {
@@ -38,25 +38,36 @@ public class ChallengesGui extends GuiScreen {
             }
 
             @Override
-            public void nineChallenges$setChallengeMask(int mask) {
-
-            }
+            public void nineChallenges$setChallengeMask(int mask) {}
         };
     }
 
     private static class StarButton extends IconButton {
         private final ChallengeHolder holder;
         private final Challenge challenge;
+        private final boolean isReadOnly;
 
-        StarButton(int id, int x, int y, ChallengeHolder holder, Challenge challenge) {
+        StarButton(int id, int x, int y, ChallengeHolder holder, Challenge challenge, boolean isReadOnly) {
             super(id, x, y);
             this.holder = holder;
             this.challenge = challenge;
+            this.isReadOnly = isReadOnly;
         }
 
-        @Override
-        protected ResourceLocation getIcon() {
+        @Override protected ResourceLocation getIcon() {
             return challenge.isIn(holder.nineChallenges$getChallengeMask()) ? starStateOn : starStateOff;
+        }
+
+        @Override public void playClickedSound(SoundManager sound_manager) {
+            if (!this.isReadOnly) {
+                super.playClickedSound(sound_manager);
+            }
+        }
+        @Override protected int getHoverState(boolean par1) {
+            return this.isReadOnly ? 1 : super.getHoverState(par1);
+        }
+        @Override public boolean mousePressed(Minecraft par1Minecraft, int par2, int par3) {
+            return !this.isReadOnly && super.mousePressed(par1Minecraft, par2, par3);
         }
     }
 
@@ -64,7 +75,7 @@ public class ChallengesGui extends GuiScreen {
     public void initGui() {
         this.buttonList.clear();
         for (Challenge challenge : Challenge.values()) {
-            this.buttonList.add(new StarButton(challenge.ordinal(), listPosX, listPosY + challenge.ordinal() * rowHeight, holder, challenge));
+            this.buttonList.add(new StarButton(challenge.ordinal(), listPosX, listPosY + challenge.ordinal() * rowHeight, holder, challenge, this.isReadOnly));
         }
         this.buttonList.add(new GuiButton(DONE_ID, this.width - 110, this.height - 28, 100, 20, I18n.getString("gui.button.done.title")));
     }
@@ -75,7 +86,9 @@ public class ChallengesGui extends GuiScreen {
         if (button.id == DONE_ID) {
             this.mc.displayGuiScreen(parent);
         } else if (button.id >= 0 && button.id < Challenge.values().length) {
-            holder.nineChallenges$setChallengeMask(holder.nineChallenges$getChallengeMask() ^ Challenge.values()[button.id].mask());
+            if (!this.isReadOnly) {
+                holder.nineChallenges$setChallengeMask(holder.nineChallenges$getChallengeMask() ^ Challenge.values()[button.id].mask());
+            }
         }
     }
 
