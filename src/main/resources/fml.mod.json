@@ -9,21 +9,21 @@
   ],
   "contact": {
     "homepage": "https://minecraftistooeasy.github.io/",
-    "sources": "https://github.com/MinecraftIsTooEasy/fish-example-mod"
+    "sources": "https://github.com/MinecraftIsTooEasy/NineChallenges"
   },
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/nine_challenges/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.example.ExampleMod"
+      "vbonedra.nine_challenges.NineChallengesMod"
     ],
     "registry": [
-      "com.example.register.ExampleRegistryInit"
+      "vbonedra.nine_challenges.register.ExampleRegistryInit"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "nine_challenges.mixins.json"
   ],
   "depends": {
     "fishmodloader": ">=3.4.0",
@@ -34,5 +34,5 @@
   "suggests": {
     "another-mod": "*"
   },
-  "accessWidener": "modid.accesswidener"
+  "accessWidener": "nine_challenges.accesswidener"
 }

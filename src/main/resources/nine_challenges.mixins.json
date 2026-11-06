@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "package": "vbonedra.nine_challenges.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "target": "DEFAULT",
+  "mixins": [
+    "GuiCreateWorldAccessor",
+    "GuiCreateWorldMixin",
+    "GuiIngameMenuMixin",
+    "GuiSelectWorldMixin",
+    "GuiWorldSlotMixin",
+    "WorldInfoMixin",
+    "WorldSettingsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+	}
+}
