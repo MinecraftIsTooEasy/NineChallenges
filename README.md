@@ -1,13 +1,13 @@
 # NineChallenges: SPD challenges
 
+DONE:
+
+- vanilla gui
+
 TODO:
 
-- gui
-  - make button in world creation screen which would open challenge gui: 9 challenges, each with Title,
-      Short Poetic Description, Full Stats Description - each has toggle checkbox; GuiSelectWorld.class;
-  - challenges are saved to file in world or into world data, its important to make it impossible
-      to modify challenges after world creation; GuiSelectWorld.class;
-  - in world selection gui challenges must be visible as little icons near world button, maybe near its icon or title;
+- add BGS gui
+
 - challenges (easiest to hardest in terms of implementing)
   - Pharmacophobia - just mixin into player getting potion effect, replace effect variable with its alternative;
   - FaithIsMyArmor - just pull some code from Renewed, it already has per-world based armor reinitialization;
@@ -33,8 +33,6 @@ TODO:
       - add dragon summoning mobs event;
   - HostileChampions
     - it requires adding new mob modifier like celestialType from HaTE + it requires coding a few champion logics, just takes lots of time
-
-DEVNOTE: i want to implement those Dragon buffs (always loaded + fireballs) into HaTE mod, so its better to look for different ones
 
 ## Badder Bosses
 `Bosses are much tougher with this challenge!`
