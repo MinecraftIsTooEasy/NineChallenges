@@ -1,0 +1,40 @@
+# gui
+gui.button.done.title=Done
+gui.challenge_gui.title=Challenges
+
+# challenges
+challenge.badder_bosses.title=Badder Bosses
+challenge.badder_bosses.description.short=
+challenge.badder_bosses.description.detailed=
+
+challenge.hostile_champions.title=Hostile Champions
+challenge.hostile_champions.description.short=
+challenge.hostile_champions.description.detailed=
+
+challenge.on_diet.title=On Diet
+challenge.on_diet.description.short=
+challenge.on_diet.description.detailed=
+
+challenge.faith_is_my_armor.title=Faith is My Armor
+challenge.faith_is_my_armor.description.short=
+challenge.faith_is_my_armor.description.detailed=
+
+challenge.pharmacophobia.title=Pharmacophobia
+challenge.pharmacophobia.description.short="Imagine how awful it is to be allergic to every illness cure. No need to imagine though."
+challenge.pharmacophobia.description.detailed=Instead of getting Regeneration and Instant Health potion effects, player gets Poison and Instant Damage respectively.\nWorks for any consumables and potions.
+
+challenge.barren_land.title=Barren Land
+challenge.barren_land.description.short=
+challenge.barren_land.description.detailed=
+
+challenge.swarm_intelligence.title=Swarm Intelligence
+challenge.swarm_intelligence.description.short=
+challenge.swarm_intelligence.description.detailed=
+
+challenge.into_darkness.title=Into Darkness
+challenge.into_darkness.description.short=
+challenge.into_darkness.description.detailed=
+
+challenge.forbidden_runes.title=Forbidden Runes
+challenge.forbidden_runes.description.short=
+challenge.forbidden_runes.description.detailed=

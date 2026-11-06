@@ -2,10 +2,10 @@ package vbonedra.nine_challenges.challenge;
 
 /** Implemented by a mixin on GuiSelectWorld. */
 public interface WorldListChallenges {
-    boolean nineChallanges$hasChallenges(int worldIndex);
-    int nineChallanges$getChallengeMask(int worldIndex);
+    boolean nineChallenges$hasChallenges(int worldIndex);
+    int nineChallenges$getChallengeMask(int worldIndex);
 
-    int nineChallanges$getMouseX();
-    int nineChallanges$getMouseY();
-    void nineChallanges$setHoveredWorld(int worldIndex);
+    int nineChallenges$getMouseX();
+    int nineChallenges$getMouseY();
+    void nineChallenges$setHoveredWorld(int worldIndex);
 }

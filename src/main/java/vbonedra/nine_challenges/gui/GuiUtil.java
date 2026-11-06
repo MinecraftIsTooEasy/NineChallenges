@@ -6,8 +6,6 @@ import net.minecraft.Tessellator;
 import org.lwjgl.opengl.GL11;
 
 public final class GuiUtil {
-    private GuiUtil() {}
-
     public static void draw(ResourceLocation tex, int x, int y, int w, int h) {
         Minecraft.getMinecraft().getTextureManager().bindTexture(tex);
         GL11.glColor4f(1F, 1F, 1F, 1F);

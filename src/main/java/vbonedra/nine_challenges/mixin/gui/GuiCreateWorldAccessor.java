@@ -1,4 +1,4 @@
-package vbonedra.nine_challenges.mixin;
+package vbonedra.nine_challenges.mixin.gui;
 
 import net.minecraft.GuiCreateWorld;
 import org.spongepowered.asm.mixin.Mixin;

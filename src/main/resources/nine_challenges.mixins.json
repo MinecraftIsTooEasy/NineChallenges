@@ -4,13 +4,15 @@
   "compatibilityLevel": "JAVA_17",
   "target": "DEFAULT",
   "mixins": [
-    "GuiCreateWorldAccessor",
-    "GuiCreateWorldMixin",
-    "GuiIngameMenuMixin",
-    "GuiSelectWorldMixin",
-    "GuiWorldSlotMixin",
-    "WorldInfoMixin",
-    "WorldSettingsMixin"
+    "challenges.pharmacophobia.EntityLivingBaseMixin",
+    "challenges.pharmacophobia.EntityPotionMixin",
+    "gui.GuiCreateWorldAccessor",
+    "gui.GuiCreateWorldMixin",
+    "gui.GuiIngameMenuMixin",
+    "gui.GuiSelectWorldMixin",
+    "gui.GuiWorldSlotMixin",
+    "gui.WorldInfoMixin",
+    "gui.WorldSettingsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

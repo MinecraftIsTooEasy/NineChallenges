@@ -1,4 +1,4 @@
-package vbonedra.nine_challenges.mixin;
+package vbonedra.nine_challenges.mixin.gui;
 
 import net.minecraft.GuiScreen;
 import net.minecraft.GuiSelectWorld;
@@ -29,6 +29,11 @@ public abstract class GuiSelectWorldMixin extends GuiScreen implements WorldList
     @Unique private int mouseY;
     @Unique private int hoveredWorld = -1;
 
+
+    @Unique private static final int tooltipOutlineColor = 0xF0100010;
+    @Unique private static final int tooltipBorderColorTop = 0x505000FF;
+    @Unique private static final int tooltipBorderColorBottom = 0x5028007F;
+
     @Inject(method = "loadSaves", at = @At("TAIL"))
     private void loadSaves_CacheMasks(CallbackInfo ci) {
         int[] masks = new int[this.saveList.size()];
@@ -45,21 +50,21 @@ public abstract class GuiSelectWorldMixin extends GuiScreen implements WorldList
         this.masks = masks;
     }
 
-    @Override public boolean nineChallanges$hasChallenges(int i) {
-        return nineChallanges$getChallengeMask(i) != 0;
+    @Override public boolean nineChallenges$hasChallenges(int i) {
+        return nineChallenges$getChallengeMask(i) != 0;
     }
 
-    @Override public int nineChallanges$getChallengeMask(int i) {
+    @Override public int nineChallenges$getChallengeMask(int i) {
         return i >= 0 && i < masks.length ? masks[i] : 0;
     }
 
-    @Override public int nineChallanges$getMouseX() {
+    @Override public int nineChallenges$getMouseX() {
         return mouseX;
     }
-    @Override public int nineChallanges$getMouseY() {
+    @Override public int nineChallenges$getMouseY() {
         return mouseY;
     }
-    @Override public void nineChallanges$setHoveredWorld(int i) {
+    @Override public void nineChallenges$setHoveredWorld(int i) {
         hoveredWorld = i;
     }
 
@@ -74,7 +79,7 @@ public abstract class GuiSelectWorldMixin extends GuiScreen implements WorldList
     // tooltip render over everything
     @Inject(method = "drawScreen", at = @At("TAIL"))
     private void drawScreen_DrawTooltip(int mx, int my, float pt, CallbackInfo ci) {
-        int mask = nineChallanges$getChallengeMask(hoveredWorld);
+        int mask = nineChallenges$getChallengeMask(hoveredWorld);
         if (hoveredWorld < 0 || mask == 0) return;
 
         int iconSide = 16;
@@ -83,7 +88,7 @@ public abstract class GuiSelectWorldMixin extends GuiScreen implements WorldList
         int challengeCount = 0;
         for (Challenge challenge : Challenge.values()) {
             if (!challenge.isIn(mask)) continue;
-            maxTextWidth = Math.max(maxTextWidth, this.fontRenderer.getStringWidth(challenge.name));
+            maxTextWidth = Math.max(maxTextWidth, this.fontRenderer.getStringWidth(challenge.getTitle()));
             challengeCount++;
         }
 
@@ -96,19 +101,30 @@ public abstract class GuiSelectWorldMixin extends GuiScreen implements WorldList
 
         GL11.glDisable(GL11.GL_LIGHTING);
         GL11.glDisable(GL11.GL_DEPTH_TEST);
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
-        drawRect(x - 1, y - 1, x + width + 1, y + height + 1, 0xF0100010);
-        drawRect(x, y, x + width, y + height, 0xF0200030);
+        this.drawGradientRect(x - 3, y - 4, x + width + 3, y + height + 4, tooltipOutlineColor, tooltipOutlineColor);
+        this.drawGradientRect(x - 4, y - 3, x + width + 4, y + height + 3, tooltipOutlineColor, tooltipOutlineColor);
+
+        this.drawGradientRect(x - 3, y - 3, x - 3 + 1, y + height + 3, tooltipBorderColorTop, tooltipBorderColorBottom);
+        this.drawGradientRect(x + width + 2, y - 3, x + width + 3, y + height + 3, tooltipBorderColorTop, tooltipBorderColorBottom);
+        this.drawGradientRect(x - 3, y - 3, x + width + 3, y - 3 + 1, tooltipBorderColorTop, tooltipBorderColorTop);
+        this.drawGradientRect(x - 3, y + height + 2, x + width + 3, y + height + 3, tooltipBorderColorBottom, tooltipBorderColorBottom);
+
+        this.drawGradientRect(x - 2, y - 2, x + width + 2, y + height + 2, tooltipOutlineColor, tooltipOutlineColor);
 
         int row = 0;
         for (Challenge challenge : Challenge.values()) {
             if (!challenge.isIn(mask)) continue;
             int ry = y + 4 + row * rowHeight;
+            GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
             GuiUtil.draw(challenge.icon, x + 4, ry, iconSide, iconSide);
-            this.fontRenderer.drawStringWithShadow(challenge.name, x + iconSide + 8, ry + 4, 0xFFFFFF);
+            this.fontRenderer.drawStringWithShadow(challenge.getTitle(), x + iconSide + 8, ry + 3, 0xFFFFFF);
             row++;
         }
 
         GL11.glEnable(GL11.GL_DEPTH_TEST);
+        GL11.glEnable(GL11.GL_LIGHTING);
     }
+
 }

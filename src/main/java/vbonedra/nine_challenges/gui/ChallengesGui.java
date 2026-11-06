@@ -2,6 +2,7 @@ package vbonedra.nine_challenges.gui;
 
 import net.minecraft.GuiButton;
 import net.minecraft.GuiScreen;
+import net.minecraft.I18n;
 import net.minecraft.ResourceLocation;
 import vbonedra.nine_challenges.challenge.Challenge;
 import vbonedra.nine_challenges.challenge.ChallengeHolder;
@@ -10,11 +11,15 @@ import vbonedra.nine_challenges.challenge.Challenges;
 import static vbonedra.nine_challenges.NineChallengesMod.NINE_CHALLENGES_MOD_ID;
 
 public class ChallengesGui extends GuiScreen {
-    private static final ResourceLocation STAR_ON  = new ResourceLocation(NINE_CHALLENGES_MOD_ID, "textures/gui/star_on.png");
-    private static final ResourceLocation STAR_OFF = new ResourceLocation(NINE_CHALLENGES_MOD_ID, "textures/gui/star_off.png");
+    private static final ResourceLocation starStateOn = new ResourceLocation(NINE_CHALLENGES_MOD_ID, "textures/gui/star_on.png");
+    private static final ResourceLocation starStateOff = new ResourceLocation(NINE_CHALLENGES_MOD_ID, "textures/gui/star_off.png");
 
-    private static final int LIST_X = 20, LIST_Y = 30, ROW_H = 22, PANEL_X = 190;
-    private static final int DONE_ID = 100;
+    private static final int listPosX = 20;
+    private static final int listPosY = 30;
+    private static final int rowHeight = 22;
+    private static final int panelPosX = 190;
+    // we can be sure that -1 is free, but cant be sure about 0..8+ because challenges use them
+    private static final int DONE_ID = -1;
 
     private final GuiScreen parent;
     private final ChallengeHolder holder;
@@ -51,17 +56,17 @@ public class ChallengesGui extends GuiScreen {
 
         @Override
         protected ResourceLocation getIcon() {
-            return challenge.isIn(holder.nineChallenges$getChallengeMask()) ? STAR_ON : STAR_OFF;
+            return challenge.isIn(holder.nineChallenges$getChallengeMask()) ? starStateOn : starStateOff;
         }
     }
 
     @Override
     public void initGui() {
         this.buttonList.clear();
-        for (Challenge c : Challenge.values()) {
-            this.buttonList.add(new StarButton(c.ordinal(), LIST_X, LIST_Y + c.ordinal() * ROW_H, holder, c));
+        for (Challenge challenge : Challenge.values()) {
+            this.buttonList.add(new StarButton(challenge.ordinal(), listPosX, listPosY + challenge.ordinal() * rowHeight, holder, challenge));
         }
-        this.buttonList.add(new GuiButton(DONE_ID, this.width - 110, this.height - 28, 100, 20, "Done"));
+        this.buttonList.add(new GuiButton(DONE_ID, this.width - 110, this.height - 28, 100, 20, I18n.getString("gui.button.done.title")));
     }
 
     @Override
@@ -78,10 +83,10 @@ public class ChallengesGui extends GuiScreen {
     protected void mouseClicked(int mx, int my, int btn) {
         super.mouseClicked(mx, my, btn);
         if (btn != 0) return;
-        for (Challenge c : Challenge.values()) {
-            int rowY = LIST_Y + c.ordinal() * ROW_H;
-            if (mx >= LIST_X + 24 && mx < PANEL_X - 10 && my >= rowY && my < rowY + 20) {
-                selected = c;
+        for (Challenge challenge : Challenge.values()) {
+            int rowY = listPosY + challenge.ordinal() * rowHeight;
+            if (mx >= listPosX + 24 && mx < panelPosX - 10 && my >= rowY && my < rowY + 20) {
+                selected = challenge;
             }
         }
     }
@@ -94,20 +99,20 @@ public class ChallengesGui extends GuiScreen {
     @Override
     public void drawScreen(int mx, int my, float pt) {
         this.drawDefaultBackground();
-        this.drawCenteredString(this.fontRenderer, "Challenges", this.width / 2, 12, 0xFFFFFF);
+        this.drawCenteredString(this.fontRenderer, I18n.getString("gui.challenge_gui.title"), this.width / 2, 12, 0xFFFFFF);
 
-        for (Challenge c : Challenge.values()) {
-            int rowY = LIST_Y + c.ordinal() * ROW_H;
-            if (c == selected) {
-                drawRect(LIST_X + 24, rowY, PANEL_X - 10, rowY + 20, 0x60FFFFFF);
+        for (Challenge challenge : Challenge.values()) {
+            int rowY = listPosY + challenge.ordinal() * rowHeight;
+            if (challenge == selected) {
+                drawRect(listPosX + 24, rowY, panelPosX - 10, rowY + 20, 0x60FFFFFF);
             }
-            GuiUtil.draw(c.icon, LIST_X + 26, rowY + 2, 16, 16);
-            this.drawString(this.fontRenderer, c.name, LIST_X + 48, rowY + 6,
-                    c.isIn(holder.nineChallenges$getChallengeMask()) ? 0xFFFF55 : 0xFFFFFF);
+            GuiUtil.draw(challenge.icon, listPosX + 26, rowY + 2, 16, 16);
+            this.drawString(this.fontRenderer, challenge.getTitle(), listPosX + 48, rowY + 6,
+                    challenge.isIn(holder.nineChallenges$getChallengeMask()) ? 0xFFFF55 : 0xFFFFFF);
         }
 
-        this.drawString(this.fontRenderer, "§n" + selected.name, PANEL_X, LIST_Y + 2, 0xFFFFFF);
-        selected.renderDescription(new DescriptionPainter(this.fontRenderer, PANEL_X, LIST_Y + 16, this.width - PANEL_X - 20));
+        this.drawString(this.fontRenderer, "§n" + selected.getTitle(), panelPosX, listPosY + 2, 0xFFFFFF);
+        selected.renderDescription(new DescriptionPainter(this.fontRenderer, panelPosX, listPosY + 16, this.width - panelPosX - 20));
 
         super.drawScreen(mx, my, pt);
     }

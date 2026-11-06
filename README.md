@@ -3,13 +3,10 @@
 DONE:
 
 - vanilla gui
+- Pharmacophobia
 
 TODO:
-
-- add BGS gui
-
 - challenges (easiest to hardest in terms of implementing)
-  - Pharmacophobia - just mixin into player getting potion effect, replace effect variable with its alternative;
   - FaithIsMyArmor - just pull some code from Renewed, it already has per-world based armor reinitialization;
   - OnDiet - just the same as FaithIsyArmor, maybe;
   - ForbiddenRunes
@@ -33,6 +30,9 @@ TODO:
       - add dragon summoning mobs event;
   - HostileChampions
     - it requires adding new mob modifier like celestialType from HaTE + it requires coding a few champion logics, just takes lots of time
+    - hostile champions must have charged creeper like glow with custom texture for each champion or must have colored particles
+    - maybe death from any champion must have custom "BTWCE:NM-like" death sentence
+- add BGS gui
 
 ## Badder Bosses
 `Bosses are much tougher with this challenge!`
