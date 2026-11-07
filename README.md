@@ -4,10 +4,10 @@ DONE:
 
 - vanilla gui
 - Pharmacophobia
+- FaithIsMyArmor
 
 TODO:
 - challenges (easiest to hardest in terms of implementing)
-  - FaithIsMyArmor - just pull some code from Renewed, it already has per-world based armor reinitialization;
   - OnDiet - just the same as FaithIsyArmor, maybe;
   - ForbiddenRunes
     - change render of enchanting table, it must ignore pressing enchantment buttons + it must tell gibberish;
@@ -84,7 +84,7 @@ TODO:
 - player starts with 5 shanks
 - each 5 levels give +1 shank up to +7 at level 35, in total 12/20 shanks
 ## Faith is My Armor
-`Take on the world with nothing but some leather to protect you!`
+`Take on the world with nothing but some leather to protect you.`
 - leather armor is unchanged
 - armor with protection higher than leather's has lower protection
 - Resistance effect gives less protection

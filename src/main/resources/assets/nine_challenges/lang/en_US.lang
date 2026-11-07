@@ -16,12 +16,12 @@ challenge.on_diet.description.short=
 challenge.on_diet.description.detailed=
 
 challenge.faith_is_my_armor.title=Faith is My Armor
-challenge.faith_is_my_armor.description.short=
-challenge.faith_is_my_armor.description.detailed=
+challenge.faith_is_my_armor.description.short=?Take on the world with nothing but some leather to protect you."
+challenge.faith_is_my_armor.description.detailed=All armor after leather is drastically worse, yet better armor still could be forged.\nProtection enchantment is half as efficient.\nResistance effect is half as efficient.\nSpecial protections are untouched.
 
 challenge.pharmacophobia.title=Pharmacophobia
 challenge.pharmacophobia.description.short="Imagine how awful it is to be allergic to every illness cure. No need to imagine though."
-challenge.pharmacophobia.description.detailed=Instead of getting Regeneration and Instant Health potion effects, player gets Poison and Instant Damage respectively.\nWorks for any consumables and potions.
+challenge.pharmacophobia.description.detailed=Potions and consumables which gave Regeneration and Instant Health effects would now give Poison and Instant Damage effects respectively.\nThis change affects only player.
 
 challenge.barren_land.title=Barren Land
 challenge.barren_land.description.short=

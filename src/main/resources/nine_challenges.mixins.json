@@ -4,6 +4,8 @@
   "compatibilityLevel": "JAVA_17",
   "target": "DEFAULT",
   "mixins": [
+    "challenges.armor_is_my_faith.EntityLivingBaseMixin",
+    "challenges.armor_is_my_faith.ItemArmorMixin",
     "challenges.pharmacophobia.EntityLivingBaseMixin",
     "challenges.pharmacophobia.EntityPotionMixin",
     "gui.GuiCreateWorldAccessor",
