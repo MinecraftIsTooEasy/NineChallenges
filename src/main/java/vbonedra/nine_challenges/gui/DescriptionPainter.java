@@ -22,14 +22,17 @@ public class DescriptionPainter {
     }
 
 
-    public void processAndDrawText(String text) {
+    public void processAndDrawText(String text, int paragraphGap) {
         text = text.replace("\\n", "\n");
         String[] paragraphs = text.split("\n");
 
         for (String paragraph : paragraphs) {
             processAndDrawParagraph(paragraph);
-            this.y += font.FONT_HEIGHT + 1;
+            this.y += paragraphGap;
         }
+    }
+    public void processAndDrawText(String text) {
+        processAndDrawText(text, font.FONT_HEIGHT / 2);
     }
     public void processAndDrawParagraph(String paragraph) {
         String[] words = paragraph.split(" ");

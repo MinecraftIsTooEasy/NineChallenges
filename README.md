@@ -7,8 +7,6 @@ DONE:
 - FaithIsMyArmor
 - OnDiet
 
-TODO: OnDiet must change only constructor of ItemFood, diet values would change based on it.
-
 TODO:
 - challenges (easiest to hardest in terms of implementing)
   - ForbiddenRunes
