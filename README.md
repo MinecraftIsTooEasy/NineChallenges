@@ -5,10 +5,12 @@ DONE:
 - vanilla gui
 - Pharmacophobia
 - FaithIsMyArmor
+- OnDiet
+
+TODO: OnDiet must change only constructor of ItemFood, diet values would change based on it.
 
 TODO:
 - challenges (easiest to hardest in terms of implementing)
-  - OnDiet - just the same as FaithIsyArmor, maybe;
   - ForbiddenRunes
     - change render of enchanting table, it must ignore pressing enchantment buttons + it must tell gibberish;
     - change applying books in anvils, it must output gibberish error;
@@ -32,6 +34,7 @@ TODO:
     - it requires adding new mob modifier like celestialType from HaTE + it requires coding a few champion logics, just takes lots of time
     - hostile champions must have charged creeper like glow with custom texture for each champion or must have colored particles
     - maybe death from any champion must have custom "BTWCE:NM-like" death sentence
+  - OnDiet - needs balancing, right now it's too unfair due to nutrition and satiation being int and not float
 - add BGS gui
 
 ## Badder Bosses

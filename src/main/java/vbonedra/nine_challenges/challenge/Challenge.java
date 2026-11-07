@@ -21,7 +21,7 @@ public enum Challenge {
     },
     ON_DIET("on_diet") {
         @Override public void renderDescription(DescriptionPainter descriptionPainter) {
-            descriptionPainter.processAndDrawText(I18n.getString("on_diet.pharmacophobia.description.short"));
+            descriptionPainter.processAndDrawText(I18n.getString("challenge.on_diet.description.short"));
             descriptionPainter.processAndDrawText(I18n.getString("challenge.on_diet.description.detailed"));
         }
     },
@@ -74,7 +74,7 @@ public enum Challenge {
         return I18n.getString("challenge."+this.name+".title");
     }
 
-    /** Draws this challenge's description (strings and textures) via DescriptionPainter. */
+    // draws description, could be text or textures or anything render could handle
     public abstract void renderDescription(DescriptionPainter descriptionPainter);
 
     public int mask() {

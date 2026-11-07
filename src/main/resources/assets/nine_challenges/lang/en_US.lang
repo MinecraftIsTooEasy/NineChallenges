@@ -12,11 +12,11 @@ challenge.hostile_champions.description.short=
 challenge.hostile_champions.description.detailed=
 
 challenge.on_diet.title=On Diet
-challenge.on_diet.description.short=
-challenge.on_diet.description.detailed=
+challenge.on_diet.description.short="Food's already scarce, but you have to watch your portions as well!"
+challenge.on_diet.description.detailed=Nutrition is thirded.\nSatiation is halved.\nProteins and Phytonutrients are thirded.\nIf Nutrition leaves remainder after thirding, Satiation increases by 1.
 
 challenge.faith_is_my_armor.title=Faith is My Armor
-challenge.faith_is_my_armor.description.short=?Take on the world with nothing but some leather to protect you."
+challenge.faith_is_my_armor.description.short="Take on the world with nothing but some leather to protect you."
 challenge.faith_is_my_armor.description.detailed=All armor after leather is drastically worse, yet better armor still could be forged.\nProtection enchantment is half as efficient.\nResistance effect is half as efficient.\nSpecial protections are untouched.
 
 challenge.pharmacophobia.title=Pharmacophobia

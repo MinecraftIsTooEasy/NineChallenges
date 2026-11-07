@@ -6,6 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import vbonedra.nine_challenges.challenge.Challenge;
+
 import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
 
 @Mixin(ItemArmor.class)
@@ -17,20 +18,19 @@ public class ItemArmorMixin {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/ItemArmor;getMultipliedProtection(Lnet/minecraft/ItemStack;)F")
     )
     private float getProtectionAfterDamageFactor_FaithIsMyArmorForArmor(float original, ItemStack item_stack, EntityLivingBase entity) {
-        if (entity instanceof EntityPlayer entityPlayer && item_stack != null) {
-            if (isChallengeEnabled(entityPlayer.getWorld(), Challenge.FAITH_IS_MY_ARMOR)) {
-                ItemArmor itemArmor = item_stack.getItemAsArmor();
-                int materialProtection = itemArmor.getMaterialProtection();
+        if (isChallengeEnabled(Challenge.FAITH_IS_MY_ARMOR)
+                && entity instanceof EntityPlayer
+                && item_stack != null) {
+            ItemArmor itemArmor = item_stack.getItemAsArmor();
+            int materialProtection = itemArmor.getMaterialProtection();
 
-                if (materialProtection < anchorProtection) {
-                    original = original / 2F;
-                }
-                else if (materialProtection > anchorProtection) {
-                    original = ((float) itemArmor.getNumComponentsForDurability() * (float) lowerProtection(materialProtection)) / 24.0F;
+            if (materialProtection < anchorProtection) {
+                original = original / 2F;
+            } else if (materialProtection > anchorProtection) {
+                original = ((float) itemArmor.getNumComponentsForDurability() * (float) lowerProtection(itemArmor, materialProtection)) / 24.0F;
 
-                    if (item_stack.hasEnchantment(Enchantment.protection, false)) {
-                        original += original * item_stack.getEnchantmentLevelFraction(Enchantment.protection) * 0.25F;
-                    }
+                if (item_stack.hasEnchantment(Enchantment.protection, false)) {
+                    original += original * item_stack.getEnchantmentLevelFraction(Enchantment.protection) * 0.25F;
                 }
             }
         }
@@ -40,9 +40,7 @@ public class ItemArmorMixin {
 
     // materialProtection must be > anchorProtection
     @Unique
-    private int lowerProtection(int materialProtection) {
-        ItemArmor itemArmor = (ItemArmor) (Object) this;
-
+    private static int lowerProtection(ItemArmor itemArmor, int materialProtection) {
         if (itemArmor.isChainMail()) {
             materialProtection += 2;
         }

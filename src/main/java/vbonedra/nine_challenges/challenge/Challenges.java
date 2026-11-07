@@ -1,14 +1,31 @@
 package vbonedra.nine_challenges.challenge;
 
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.World;
 import net.minecraft.WorldInfo;
 
 public final class Challenges {
-    private Challenges() {}
 
-    public static ChallengeHolder holder(Object o) {
-        return (ChallengeHolder) o;
+    // client saved data
+    private static volatile int clientMask = 0;
+
+    public static ChallengeHolder holder(Object object) {
+        return (ChallengeHolder) object;
+    }
+
+    public static boolean isChallengeEnabled(Challenge challenge) {
+        return challenge.isIn(getActiveMask());
+    }
+
+    public static boolean hasAny() {
+        return getActiveMask() != 0;
+    }
+
+    private static int getActiveMask() {
+        MinecraftServer server = MinecraftServer.getServer();
+        if (server != null && server.worldServers != null && server.worldServers[0] != null) {
+            return getMask(server.worldServers[0].getWorldInfo());
+        }
+        return clientMask;
     }
 
     public static int getMask(WorldInfo worldInfo) {
@@ -19,12 +36,10 @@ public final class Challenges {
         return challenge.isIn(getMask(worldInfo));
     }
 
-    public static boolean isChallengeEnabled(World world, Challenge challenge) {
-        WorldInfo worldInfo = world.getWorldInfo();
-        if (world.isRemote) {
-            MinecraftServer server = MinecraftServer.getServer();
-            if (server != null) worldInfo = server.worldServers[0].getWorldInfo();
-        }
-        return isChallengeEnabled(worldInfo, challenge);
+    public static void setClientMask(int mask) {
+        clientMask = mask;
+    }
+    public static void resetClientMask() {
+        clientMask = 0;
     }
 }

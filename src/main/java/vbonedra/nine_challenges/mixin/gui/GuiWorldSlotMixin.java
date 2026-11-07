@@ -27,6 +27,7 @@ public abstract class GuiWorldSlotMixin {
 
     @Final @Shadow GuiSelectWorld parentWorldGui;
 
+    // TODO: this must check if there are any challenges and only then increase height
     // vanilla passes 36 as the slot height to super()
     @ModifyConstant(method = "<init>", constant = @Constant(intValue = 36))
     private static int init_AddSpaceForIcons(int original) {
@@ -36,7 +37,7 @@ public abstract class GuiWorldSlotMixin {
     // grail before the world name
     @Inject(method = "drawSlot", at = @At("HEAD"))
     private void drawSlot_DrawGrail(int index, int x, int y, int height, Tessellator t, CallbackInfo ci) {
-        WorldListChallenges list = (WorldListChallenges) (Object) parentWorldGui;
+        WorldListChallenges list = (WorldListChallenges) (Object) this.parentWorldGui;
         GuiUtil.draw(list.nineChallenges$hasChallenges(index) ? GrailButton.stateOn : GrailButton.stateOff, x + 2, y, 16, 16);
     }
 
@@ -49,23 +50,22 @@ public abstract class GuiWorldSlotMixin {
     // icons of active challenges on 4th line in world info + hover detection
     @Inject(method = "drawSlot", at = @At("TAIL"))
     private void drawSlot_DrawChallengeIcons(int index, int x, int y, int height, Tessellator t, CallbackInfo ci) {
-        WorldListChallenges list = (WorldListChallenges) (Object) parentWorldGui;
+        WorldListChallenges list = (WorldListChallenges) (Object) this.parentWorldGui;
         int challengeMask = list.nineChallenges$getChallengeMask(index);
         if (challengeMask == 0) return;
 
-        int ix = x;
         int iy = y + lineOffsetSize;
         int count = 0;
         for (Challenge challenge : Challenge.values()) {
             if (!challenge.isIn(challengeMask)) continue;
-            GuiUtil.draw(challenge.icon, ix + count * (iconSize + gapSize), iy, iconSize, iconSize);
+            GuiUtil.draw(challenge.icon, x + count * (iconSize + gapSize), iy, iconSize, iconSize);
             count++;
         }
 
         int mx = list.nineChallenges$getMouseX(), my = list.nineChallenges$getMouseY();
-        boolean inListArea = my > 32 && my < parentWorldGui.height - 64; // slot list clip area
+        boolean inListArea = my > 32 && my < this.parentWorldGui.height - 64; // slot list clip area
         int rowW = count * (iconSize + gapSize) - gapSize;
-        if (inListArea && mx >= ix && mx < ix + rowW && my >= iy && my < iy + iconSize) {
+        if (inListArea && mx >= x && mx < x + rowW && my >= iy && my < iy + iconSize) {
             list.nineChallenges$setHoveredWorld(index);
         }
     }
