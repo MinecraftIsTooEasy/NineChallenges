@@ -1,3 +1,4 @@
 accessWidener v2 named
 
 accessible class net/minecraft/GuiWorldSlot
+accessible field net/minecraft/GuiScreen fontRenderer Lnet/minecraft/FontRenderer;

@@ -8,8 +8,8 @@ import vbonedra.nine_challenges.challenge.Challenges;
 import static vbonedra.nine_challenges.NineChallengesMod.NINE_CHALLENGES_MOD_ID;
 
 public class ChallengesGui extends GuiScreen {
-    private static final ResourceLocation starStateOn = new ResourceLocation(NINE_CHALLENGES_MOD_ID, "textures/gui/star_on.png");
-    private static final ResourceLocation starStateOff = new ResourceLocation(NINE_CHALLENGES_MOD_ID, "textures/gui/star_off.png");
+    private static final ResourceLocation starStateOn = new ResourceLocation(NINE_CHALLENGES_MOD_ID, "textures/gui/icons/star/star_gold.png");
+    private static final ResourceLocation starStateOff = new ResourceLocation(NINE_CHALLENGES_MOD_ID, "textures/gui/icons/star/star_off.png");
 
     private static final int listPosX = 20;
     private static final int listPosY = 30;
@@ -87,7 +87,7 @@ public class ChallengesGui extends GuiScreen {
             this.mc.displayGuiScreen(parent);
         } else if (button.id >= 0 && button.id < Challenge.values().length) {
             if (!this.isReadOnly) {
-                holder.nineChallenges$setChallengeMask(holder.nineChallenges$getChallengeMask() ^ Challenge.values()[button.id].mask());
+                holder.nineChallenges$setChallengeMask(holder.nineChallenges$getChallengeMask() ^ Challenge.values()[button.id].challengeMask());
             }
         }
     }

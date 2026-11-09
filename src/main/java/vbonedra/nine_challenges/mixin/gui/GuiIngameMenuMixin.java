@@ -16,7 +16,7 @@ import vbonedra.nine_challenges.gui.GrailButton;
 @Mixin(GuiIngameMenu.class)
 public abstract class GuiIngameMenuMixin extends GuiScreen {
 
-    @Unique private static final int CHALLENGES_BUTTON_ID = 6847; // TODO: find better id setting way, its too hostile
+    @Unique private static final int CHALLENGES_BUTTON_ID = 6847; // TODO: find better id setting way, its too unstable at the moment
 
     @Inject(at = @At("TAIL"), method = "initGui")
     private void initGui_AddChallengeGuiButton(CallbackInfo ci) {

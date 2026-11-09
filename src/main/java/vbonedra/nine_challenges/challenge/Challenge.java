@@ -67,7 +67,7 @@ public enum Challenge {
 
     Challenge(String name) {
         this.name = name;
-        this.icon = new ResourceLocation(NINE_CHALLENGES_MOD_ID, "textures/gui/challenge_icons/" + name + ".png");
+        this.icon = new ResourceLocation(NINE_CHALLENGES_MOD_ID, "textures/gui/icons/challenge/" + name + ".png");
     }
 
     public String getTitle() {
@@ -77,11 +77,15 @@ public enum Challenge {
     // draws description, could be text or textures or anything render could handle
     public abstract void renderDescription(DescriptionPainter descriptionPainter);
 
-    public int mask() {
+    public int challengeMask() {
         return 1 << ordinal();
     }
 
-    public boolean isIn(int mask) {
-        return (mask & mask()) != 0;
+    public boolean isIn(int challengeMask) {
+        return (challengeMask & challengeMask()) != 0;
+    }
+
+    static public int countChallenges(int challengeMask) {
+        return Integer.bitCount(challengeMask);
     }
 }

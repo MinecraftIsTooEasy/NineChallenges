@@ -1,72 +1,57 @@
 package vbonedra.nine_challenges.mixin.gui;
 
-import net.minecraft.GuiSelectWorld;
-import net.minecraft.GuiWorldSlot;
-import net.minecraft.Tessellator;
+import net.minecraft.*;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import vbonedra.nine_challenges.challenge.Challenge;
 import vbonedra.nine_challenges.challenge.WorldListChallenges;
 import vbonedra.nine_challenges.gui.GrailButton;
 import vbonedra.nine_challenges.gui.GuiUtil;
 
+import static vbonedra.nine_challenges.challenge.Challenge.countChallenges;
+import static vbonedra.nine_challenges.gui.GrailButton.getDynamicIcon;
+
 @Mixin(GuiWorldSlot.class)
 public abstract class GuiWorldSlotMixin {
 
-    @Unique private static final int iconSize = 16;
+    @Unique private static final int grailIconSize = 16;
     @Unique private static final int gapSize = 2;
-    @Unique private static final int lineOffsetSize = 34;
 
     @Final @Shadow GuiSelectWorld parentWorldGui;
-
-    // TODO: this must check if there are any challenges and only then increase height
-    // vanilla passes 36 as the slot height to super()
-    @ModifyConstant(method = "<init>", constant = @Constant(intValue = 36))
-    private static int init_AddSpaceForIcons(int original) {
-        return 36 + iconSize + gapSize;
-    }
 
     // grail before the world name
     @Inject(method = "drawSlot", at = @At("HEAD"))
     private void drawSlot_DrawGrail(int index, int x, int y, int height, Tessellator t, CallbackInfo ci) {
         WorldListChallenges list = (WorldListChallenges) (Object) this.parentWorldGui;
-        GuiUtil.draw(list.nineChallenges$hasChallenges(index) ? GrailButton.stateOn : GrailButton.stateOff, x + 2, y, 16, 16);
-    }
-
-    // shift the three vanilla text lines right to make room for the grail
-    @ModifyVariable(method = "drawSlot", at = @At("HEAD"), argsOnly = true, ordinal = 1)
-    private int drawSlot_ShiftText(int x) {
-        return x + iconSize + gapSize;
+        GuiUtil.draw(getDynamicIcon(list.nineChallenges$getChallengeMask(index)), x - grailIconSize - gapSize, y, grailIconSize, grailIconSize);
     }
 
     // icons of active challenges on 4th line in world info + hover detection
     @Inject(method = "drawSlot", at = @At("TAIL"))
-    private void drawSlot_DrawChallengeIcons(int index, int x, int y, int height, Tessellator t, CallbackInfo ci) {
+    private void drawSlot_DrawChallengeCountAndCheckGrailHovered(int index, int x, int y, int height, Tessellator t, CallbackInfo ci) {
         WorldListChallenges list = (WorldListChallenges) (Object) this.parentWorldGui;
         int challengeMask = list.nineChallenges$getChallengeMask(index);
         if (challengeMask == 0) return;
 
-        int iy = y + lineOffsetSize;
-        int count = 0;
-        for (Challenge challenge : Challenge.values()) {
-            if (!challenge.isIn(challengeMask)) continue;
-            GuiUtil.draw(challenge.icon, x + count * (iconSize + gapSize), iy, iconSize, iconSize);
-            count++;
-        }
+        FontRenderer font = ((GuiSelectWorld) this.parentWorldGui).fontRenderer;
 
-        int mx = list.nineChallenges$getMouseX(), my = list.nineChallenges$getMouseY();
-        boolean inListArea = my > 32 && my < this.parentWorldGui.height - 64; // slot list clip area
-        int rowW = count * (iconSize + gapSize) - gapSize;
-        if (inListArea && mx >= x && mx < x + rowW && my >= iy && my < iy + iconSize) {
+        String line = countChallenges(challengeMask) + "/" + Challenge.values().length;
+        int lineX = x - gapSize - font.getStringWidth(line);
+        int lineY = y + grailIconSize + gapSize;
+        font.drawStringWithShadow(line, lineX, lineY, 0xFFFFFF);
+
+        int mouseX = list.nineChallenges$getMouseX();
+        int mouseY = list.nineChallenges$getMouseY();
+        if (mouseX <= x - gapSize && mouseX > x - grailIconSize - gapSize
+                && mouseY >= y && mouseY < y + grailIconSize) {
             list.nineChallenges$setHoveredWorld(index);
         }
     }
+
+
 }

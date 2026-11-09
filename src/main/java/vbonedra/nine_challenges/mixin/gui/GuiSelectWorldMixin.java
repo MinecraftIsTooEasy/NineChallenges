@@ -70,15 +70,15 @@ public abstract class GuiSelectWorldMixin extends GuiScreen implements WorldList
 
     // stores mouse and resets hover state
     @Inject(method = "drawScreen", at = @At("HEAD"))
-    private void drawScreen_StoreInitialVariables(int mx, int my, float pt, CallbackInfo ci) {
-        this.mouseX = mx;
-        this.mouseY = my;
+    private void drawScreen_StoreInitialVariables(int mouseX, int mouseY, float pt, CallbackInfo ci) {
+        this.mouseX = mouseX;
+        this.mouseY = mouseY;
         this.hoveredWorld = -1;
     }
 
     // tooltip render over everything
     @Inject(method = "drawScreen", at = @At("TAIL"))
-    private void drawScreen_DrawTooltip(int mx, int my, float pt, CallbackInfo ci) {
+    private void drawScreen_DrawTooltip(int mouseX, int mouseY, float pt, CallbackInfo ci) {
         int mask = nineChallenges$getChallengeMask(hoveredWorld);
         if (hoveredWorld < 0 || mask == 0) return;
 
@@ -94,9 +94,9 @@ public abstract class GuiSelectWorldMixin extends GuiScreen implements WorldList
 
         int width = 4 + iconSide + 4 + maxTextWidth + 4;
         int height = 4 + challengeCount * rowHeight + 2;
-        int x = mx + 12;
-        int y = my - 4;
-        if (x + width > this.width) x = mx - width - 8;
+        int x = mouseX + 12;
+        int y = mouseY - 4;
+        if (x + width > this.width) x = mouseX - width - 8;
         if (y + height > this.height) y = this.height - height;
 
         GL11.glDisable(GL11.GL_LIGHTING);
