@@ -23,10 +23,10 @@ public class GrailButton extends IconButton {
 
     @Override
     protected ResourceLocation getIcon() {
-        return getDynamicIcon(holder.nineChallenges$getChallengeMask());
+        return getGrailDifficultyIcon(holder.nineChallenges$getChallengeMask());
     }
 
-    public static ResourceLocation getDynamicIcon(int challengeMask) {
+    public static ResourceLocation getGrailDifficultyIcon(int challengeMask) {
         switch (countChallenges(challengeMask)) {
             case 1, 2, 3 -> {
                 return GrailButton.stateDifficultyEasy;

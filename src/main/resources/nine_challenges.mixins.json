@@ -8,6 +8,8 @@
     "ServerConfigurationManagerMixin",
     "challenges.armor_is_my_faith.EntityLivingBaseMixin",
     "challenges.armor_is_my_faith.ItemArmorMixin",
+    "challenges.on_diet.FoodStatsMixin",
+    "challenges.on_diet.GuiIngameMixin",
     "challenges.on_diet.ItemMixin",
     "challenges.pharmacophobia.EntityLivingBaseMixin",
     "challenges.pharmacophobia.EntityPotionMixin",

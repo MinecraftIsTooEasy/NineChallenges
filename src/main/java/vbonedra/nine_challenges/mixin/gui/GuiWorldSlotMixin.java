@@ -10,11 +10,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import vbonedra.nine_challenges.challenge.Challenge;
 import vbonedra.nine_challenges.challenge.WorldListChallenges;
-import vbonedra.nine_challenges.gui.GrailButton;
 import vbonedra.nine_challenges.gui.GuiUtil;
 
 import static vbonedra.nine_challenges.challenge.Challenge.countChallenges;
-import static vbonedra.nine_challenges.gui.GrailButton.getDynamicIcon;
+import static vbonedra.nine_challenges.gui.GrailButton.getGrailDifficultyIcon;
 
 @Mixin(GuiWorldSlot.class)
 public abstract class GuiWorldSlotMixin {
@@ -28,7 +27,7 @@ public abstract class GuiWorldSlotMixin {
     @Inject(method = "drawSlot", at = @At("HEAD"))
     private void drawSlot_DrawGrail(int index, int x, int y, int height, Tessellator t, CallbackInfo ci) {
         WorldListChallenges list = (WorldListChallenges) (Object) this.parentWorldGui;
-        GuiUtil.draw(getDynamicIcon(list.nineChallenges$getChallengeMask(index)), x - grailIconSize - gapSize, y, grailIconSize, grailIconSize);
+        GuiUtil.draw(getGrailDifficultyIcon(list.nineChallenges$getChallengeMask(index)), x - grailIconSize - gapSize, y, grailIconSize, grailIconSize);
     }
 
     // icons of active challenges on 4th line in world info + hover detection

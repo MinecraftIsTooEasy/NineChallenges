@@ -30,7 +30,7 @@ public abstract class ItemMixin {
         if (!isChallengeEnabled(Challenge.ON_DIET)) {
             return original;
         }
-        int result = original / 2;
+        int result = original == 1 ? 1 : original / 2;
         if (isNutritionRemainder()) {
             result += 1;
         }
