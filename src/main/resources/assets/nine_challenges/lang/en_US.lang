@@ -2,6 +2,17 @@
 gui.button.done.title=Done
 gui.challenge_gui.title=Challenges
 
+gui.enchanting.gibberish.0=Gibberish.
+gui.enchanting.gibberish.1=What?
+gui.enchanting.gibberish.2=Is there a manual?
+gui.enchanting.gibberish.3=Help?
+gui.enchanting.gibberish.4=Yoo runes!
+gui.enchanting.gibberish.5=Whatever.
+gui.enchanting.gibberish.6=Uh oh.
+gui.enchanting.gibberish.7=I don't get it.
+gui.enchanting.gibberish.8=Not Easy.
+gui.enchanting.gibberish.9=Ooh fancy.
+
 # challenges
 challenge.badder_bosses.title=Badder Bosses
 challenge.badder_bosses.description.short=
@@ -36,5 +47,5 @@ challenge.into_darkness.description.short=
 challenge.into_darkness.description.detailed=
 
 challenge.forbidden_runes.title=Forbidden Runes
-challenge.forbidden_runes.description.short=
-challenge.forbidden_runes.description.detailed=
+challenge.forbidden_runes.description.short="What a great world of magic! Huh? You forgot to learn the language?!"
+challenge.forbidden_runes.description.detailed=Enchantment language is incomprehensible, as well as Enchanting Table.\nAnvils could be used to work with magic.\nIt's still possible to carve runes on stones.

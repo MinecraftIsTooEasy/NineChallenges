@@ -1,4 +1,4 @@
-package vbonedra.nine_challenges.mixin.challenges.armor_is_my_faith;
+package vbonedra.nine_challenges.mixin.challenges.faith_is_my_armor;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.*;

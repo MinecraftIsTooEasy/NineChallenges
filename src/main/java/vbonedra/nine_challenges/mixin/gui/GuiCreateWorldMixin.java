@@ -54,7 +54,10 @@ public abstract class GuiCreateWorldMixin extends GuiScreen implements Challenge
     }
 
     // Stamp the chosen mask onto the WorldSettings right before the world launches
-    @Redirect(method = "actionPerformed", at = @At(value = "INVOKE", target = "Lnet/minecraft/Minecraft;launchIntegratedServer(Ljava/lang/String;Ljava/lang/String;Lnet/minecraft/WorldSettings;)V"))
+    @Redirect(
+            method = "actionPerformed",
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/Minecraft;launchIntegratedServer(Ljava/lang/String;Ljava/lang/String;Lnet/minecraft/WorldSettings;)V")
+    )
     private void actionPerformed_in_launchIntegratedServer_SetChallengeMask(Minecraft mc, String folder, String name, WorldSettings worldSettings) {
         Challenges.holder(worldSettings).nineChallenges$setChallengeMask(this.challengeMask);
         mc.launchIntegratedServer(folder, name, worldSettings);

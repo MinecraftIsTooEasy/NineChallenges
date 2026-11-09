@@ -6,13 +6,10 @@ DONE:
 - Pharmacophobia
 - FaithIsMyArmor
 - OnDiet
+- ForbiddenRunes
 
 TODO:
 - challenges (easiest to hardest in terms of implementing)
-  - ForbiddenRunes
-    - change render of enchanting table, it must ignore pressing enchantment buttons + it must tell gibberish;
-    - change applying books in anvils, it must output gibberish error;
-    - change enchantments on items, it must say gibberish instead of their names;
   - IntoDarkness
     - change render of lightmap to be pitch black;
     - change moon to always be new moon;
@@ -114,7 +111,7 @@ TODO:
 ## Forbidden Runes
 `What a great world of magic! Huh? You forgot to learn the language?!`
 - player can't use enchanting table
-- player can't use anvil to apply enchanting books
+- player can use anvil to apply enchanting books + enchant golden apples with bottle of experience
 - player can't read enchantments on already enchanted items
 
 

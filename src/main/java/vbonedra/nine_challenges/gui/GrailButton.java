@@ -28,13 +28,13 @@ public class GrailButton extends IconButton {
 
     public static ResourceLocation getGrailDifficultyIcon(int challengeMask) {
         switch (countChallenges(challengeMask)) {
-            case 1, 2, 3 -> {
+            case 1, 2 -> {
                 return GrailButton.stateDifficultyEasy;
             }
-            case 4, 5, 6 -> {
+            case 3, 4, 5 -> {
                 return GrailButton.stateDifficultyNormal;
             }
-            case 7, 8 -> {
+            case 6, 7, 8 -> {
                 return GrailButton.stateDifficultyHard;
             }
             case 9 -> {
