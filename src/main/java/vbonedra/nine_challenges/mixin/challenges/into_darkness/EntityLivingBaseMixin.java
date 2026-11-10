@@ -28,6 +28,12 @@ public abstract class EntityLivingBaseMixin extends Entity {
     @Shadow
     public abstract BaseAttributeMap getAttributeMap();
 
+    @Shadow
+    public abstract PotionEffect getActivePotionEffect(int potion_id);
+
+    @Shadow
+    public abstract boolean isPotionActive(Potion par1Potion);
+
     @Inject(method = "onLivingUpdate", at = @At("HEAD"))
     private void onLivingUpdate_SlownessInDarkness(CallbackInfo ci) {
         if (Challenges.isChallengeEnabled(Challenge.INTO_DARKNESS)) {
@@ -45,7 +51,7 @@ public abstract class EntityLivingBaseMixin extends Entity {
                     MathHelper.floor_double(this.posX),
                     MathHelper.floor_double(this.boundingBox.minY),
                     MathHelper.floor_double(this.posZ)
-            ) <= 0) {
+            ) <= 0 && !this.isPotionActive(Potion.nightVision)) {
                 if (activeModifier == null) {
                     AttributeModifier newModifier = new AttributeModifier(
                             darknessSlownessUUID,

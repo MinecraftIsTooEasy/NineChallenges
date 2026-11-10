@@ -1,4 +1,4 @@
-package vbonedra.nine_challenges.mixin;
+package vbonedra.nine_challenges.mixin.network;
 
 import net.minecraft.NetClientHandler;
 import net.minecraft.Packet1Login;

@@ -4,8 +4,6 @@
   "compatibilityLevel": "JAVA_17",
   "target": "DEFAULT",
   "mixins": [
-    "NetClientHandlerMixin",
-    "ServerConfigurationManagerMixin",
     "challenges.barren_land.BlockLeavesMixin",
     "challenges.barren_land.BlockTallGrassMixin",
     "challenges.barren_land.render.BiomeGenBaseMixin",
@@ -31,6 +29,7 @@
     "challenges.into_darkness.EntityLivingBaseMixin",
     "challenges.into_darkness.EntityRendererMixin",
     "challenges.into_darkness.SpawnerAnimalsMixin",
+    "challenges.into_darkness.WorldProviderHellMixin",
     "challenges.on_diet.FoodStatsMixin",
     "challenges.on_diet.GuiIngameMixin",
     "challenges.on_diet.ItemMixin",
@@ -42,7 +41,9 @@
     "gui.GuiSelectWorldMixin",
     "gui.GuiWorldSlotMixin",
     "gui.WorldInfoMixin",
-    "gui.WorldSettingsMixin"
+    "gui.WorldSettingsMixin",
+    "network.NetClientHandlerMixin",
+    "network.ServerConfigurationManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

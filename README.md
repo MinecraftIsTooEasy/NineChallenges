@@ -9,16 +9,16 @@ DONE:
 - ForbiddenRunes
 - BarrenLands
 - IntoDarkness
-  - change render of lightmap to be pitch black;
 
 
 
 
 TODO:
 - challenges (easiest to hardest in terms of implementing)
-    - IntoDarkness
-        - change render of lightmap to be pitch black;
-        - change mob spawn rules to spawn in 0 light no matter how close player is; (just 1 mixin into 1 place, look into HaTE to remember mob spawning bs)
+    - HostileChampions
+        - it requires adding new mob modifier like celestialType from HaTE + it requires coding a few champion logics, just takes lots of time
+        - hostile champions must have charged creeper like glow with custom texture for each champion or must have colored particles
+        - maybe death from any champion must have custom "BTWCE:NM-like" death sentence
   - SwarmIntelligence
     1) mobA starts targeting player ->
     2) mobA looks for other mobs ->
@@ -30,12 +30,9 @@ TODO:
       - change worldgen: +100% crystals;
       - add crystal post-explosion event;
       - add dragon summoning mobs event;
-  - HostileChampions
-    - it requires adding new mob modifier like celestialType from HaTE + it requires coding a few champion logics, just takes lots of time
-    - hostile champions must have charged creeper like glow with custom texture for each champion or must have colored particles
-    - maybe death from any champion must have custom "BTWCE:NM-like" death sentence
 
 - add BGS gui
+- add constant for configs and make translation dynamic (look into ShatteredBaubles EMI translation)
 
 ## Badder Bosses
 `Bosses are much tougher with this challenge!`
@@ -109,7 +106,7 @@ TODO:
 - if mob sees player it tells other mobs location which they would start targeting
 - targeted mobs won't know that their goal is player, they would just wander to target location
 ## Into Darkness
-`You can barely see past your nose.`
+****
 - 0 light is pitch black
 - all moons are new moons, new moons produce 0 skylight
 - minimal mob spawn light increased

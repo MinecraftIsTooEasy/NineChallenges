@@ -43,8 +43,8 @@ challenge.swarm_intelligence.description.short=
 challenge.swarm_intelligence.description.detailed=
 
 challenge.into_darkness.title=Into Darkness
-challenge.into_darkness.description.short=
-challenge.into_darkness.description.detailed=
+challenge.into_darkness.description.short="You can barely see past your nose."
+challenge.into_darkness.description.detailed=True darkness.\nNew moon's light is too dark to see anything\nHell is in darkness.\nIn darkness hostiles spawn 12 times closer to player instead of 3 times closer.\nBeing in darkness slows player down by 20%.
 
 challenge.forbidden_runes.title=Forbidden Runes
 challenge.forbidden_runes.description.short="What a great world of magic! Huh? You forgot to learn the language?!"
