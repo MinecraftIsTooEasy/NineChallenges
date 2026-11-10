@@ -35,8 +35,8 @@ challenge.pharmacophobia.description.short="Imagine how awful it is to be allerg
 challenge.pharmacophobia.description.detailed=Potions and consumables which gave Regeneration and Instant Health effects would now give Poison and Instant Damage effects respectively.\nThis change affects only player.
 
 challenge.barren_land.title=Barren Land
-challenge.barren_land.description.short=
-challenge.barren_land.description.detailed=
+challenge.barren_land.description.short="There seems to be no healthy plants left in this accursed world..."
+challenge.barren_land.description.detailed=The world looks sick.\nTree crowns are thin and small.\nLeaves drop fruits only when mined with effective tool.\nSaplings grow into shrubs.\nThree out of four flowers wither into shrubs.\nPumpkins barely spawn.\nCacti barely spawn.\nCrops grow only on fertilized farmland, and every growth consumes manure.\nGrass drops seed with 10% chance when mined by effective tool.
 
 challenge.swarm_intelligence.title=Swarm Intelligence
 challenge.swarm_intelligence.description.short=

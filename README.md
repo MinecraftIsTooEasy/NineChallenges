@@ -7,13 +7,10 @@ DONE:
 - FaithIsMyArmor
 - OnDiet
 - ForbiddenRunes
+- BarrenLands
 
 TODO:
 - challenges (easiest to hardest in terms of implementing)
-  - IntoDarkness
-    - change render of lightmap to be pitch black;
-    - change moon to always be new moon;
-    - change mob spawn rules to spawn in 0 light no matter how close player is;
   - SwarmIntelligence
     1) mobA starts targeting player ->
     2) mobA looks for other mobs ->
@@ -29,7 +26,11 @@ TODO:
     - it requires adding new mob modifier like celestialType from HaTE + it requires coding a few champion logics, just takes lots of time
     - hostile champions must have charged creeper like glow with custom texture for each champion or must have colored particles
     - maybe death from any champion must have custom "BTWCE:NM-like" death sentence
-  - OnDiet - needs balancing, right now it's too unfair due to nutrition and satiation being int and not float
+  - IntoDarkness
+    - change render of lightmap to be pitch black;
+    - change moon to always be new moon;
+    - change mob spawn rules to spawn in 0 light no matter how close player is;
+
 - add BGS gui
 
 ## Badder Bosses
@@ -113,14 +114,3 @@ TODO:
 - player can't use enchanting table
 - player can use anvil to apply enchanting books + enchant golden apples with bottle of experience
 - player can't read enchantments on already enchanted items
-
-
-## Badder Bosses
-## Hostile Champions
-## On Diet
-## Faith is My Armor
-## Pharmacophobia
-## Barren Land
-## Swarm Intelligence
-## Into Darkness
-## Forbidden Runes
