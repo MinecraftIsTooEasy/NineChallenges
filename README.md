@@ -8,9 +8,17 @@ DONE:
 - OnDiet
 - ForbiddenRunes
 - BarrenLands
+- IntoDarkness
+  - change render of lightmap to be pitch black;
+
+
+
 
 TODO:
 - challenges (easiest to hardest in terms of implementing)
+    - IntoDarkness
+        - change render of lightmap to be pitch black;
+        - change mob spawn rules to spawn in 0 light no matter how close player is; (just 1 mixin into 1 place, look into HaTE to remember mob spawning bs)
   - SwarmIntelligence
     1) mobA starts targeting player ->
     2) mobA looks for other mobs ->
@@ -26,10 +34,6 @@ TODO:
     - it requires adding new mob modifier like celestialType from HaTE + it requires coding a few champion logics, just takes lots of time
     - hostile champions must have charged creeper like glow with custom texture for each champion or must have colored particles
     - maybe death from any champion must have custom "BTWCE:NM-like" death sentence
-  - IntoDarkness
-    - change render of lightmap to be pitch black;
-    - change moon to always be new moon;
-    - change mob spawn rules to spawn in 0 light no matter how close player is;
 
 - add BGS gui
 

@@ -15,7 +15,7 @@ public class BlockDeadBushMixin {
     @Inject(method = "isLegalOn", at = @At("TAIL"), cancellable = true)
     public void isLegalOn_DeadBushOnDirt(int metadata, Block block_below, int block_below_metadata, CallbackInfoReturnable<Boolean> cir) {
         if (Challenges.isChallengeEnabled(Challenge.BARREN_LAND)) {
-            if (metadata == 1) {
+            if (metadata == 0) {
                 if (block_below == Block.dirt || block_below == Block.grass) {
                     cir.setReturnValue(true);
                 }

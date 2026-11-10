@@ -43,7 +43,7 @@ public class WorldGenFlowersMixin {
     private boolean generate_RedirectSetBlock(World world, int x, int y, int z, int blockId, int metadata, int flag) {
         if (Challenges.isChallengeEnabled(Challenge.BARREN_LAND)) {
             if (this.shouldConvert) {
-                return world.setBlock(x, y, z, Block.tallGrass.blockID, 0, flag);
+                return world.setBlock(x, y, z, Block.deadBush.blockID, 0, flag);
             }
         }
         return world.setBlock(x, y, z, blockId, metadata, flag);
