@@ -11,11 +11,9 @@ import vbonedra.nine_challenges.challenge.Challenges;
 @Mixin(WorldProviderHell.class)
 public class WorldProviderHellMixin {
 
-
     @Inject(method = "generateLightBrightnessTable", at = @At("RETURN"))
     protected void generateLightBrightnessTable_Darkness(CallbackInfo ci) {
         if (Challenges.isChallengeEnabled(Challenge.INTO_DARKNESS)) ((WorldProviderHell) (Object) this).lightBrightnessTable[0] = 0;
     }
-
 
 }

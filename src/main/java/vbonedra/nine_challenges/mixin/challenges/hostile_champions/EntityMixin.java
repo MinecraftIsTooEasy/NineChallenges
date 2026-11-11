@@ -42,66 +42,23 @@ public abstract class EntityMixin {
         }
     }
 
-    @Inject(method = "attackEntityFrom(Lnet/minecraft/Damage;)Lnet/minecraft/EntityDamageResult;", at = @At("RETURN"))
-    private void attackEntityFrom_BlazingIgnites(Damage damage, CallbackInfoReturnable<EntityDamageResult> cir) {
-        if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
-        EntityDamageResult result = cir.getReturnValue();
-        if (result == null || !result.entityLostHealth()) return;
-
-        Entity attacker = damage.getResponsibleEntity();
-        if (attacker instanceof IHostileChampionType attackerIHostileChampionType) {
-            if (attackerIHostileChampionType.NC$getHostileChampionType() == HostileChampionType.Blazing) {
-                if (!attacker.isWet()) {
-                    ((Entity) (Object) this).setFire(5);
-                    damage.setAmount(damage.getAmount() * 1.25f);
-                }
-            } else if (attackerIHostileChampionType.NC$getHostileChampionType() == HostileChampionType.Projecting) {
-                damage.setAmount(damage.getAmount() * 1.25f);
-            }
-        }
-
-    }
-
-
-
     @Inject(method = "setDead", at = @At("HEAD"))
     private void onDeath(CallbackInfo ci) {
         if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
         if (!this.worldObj.isRemote) {
             if (this instanceof IHostileChampionType iHostileChampionType) {
                 if (iHostileChampionType.NC$getHostileChampionType() == HostileChampionType.Blazing) {
-                    if (!this.isWet()) {
-                        spawnFireBurst(1.0F, 1F);
+                    if (this.isWet()) {
+                        this.worldObj.playSoundEffect(
+                                this.posX, this.posY, this.posZ,
+                                "random.fizz",
+                                0.5F,
+                                2.6F + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.8F
+                        );
+                    } else {
+                        spawnFireBurst(2.0F, 1F);
                     }
                 }
-            }
-        }
-    }
-
-    @Inject(method = "canCatchFire()Z", at = @At("HEAD"), cancellable = true)
-    private void canCatchFire_BlazingNoFire(CallbackInfoReturnable<Boolean> cir) {
-        if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
-        if (this instanceof IHostileChampionType iHostileChampionType) {
-            if (iHostileChampionType.NC$getHostileChampionType() == HostileChampionType.Blazing) {
-                cir.setReturnValue(false);
-            }
-        }
-    }
-    @Inject(method = "isHarmedByFire()Z", at = @At("HEAD"), cancellable = true)
-    private void isHarmedByFire_BlazingNoFire(CallbackInfoReturnable<Boolean> cir) {
-        if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
-        if (this instanceof IHostileChampionType iHostileChampionType) {
-            if (iHostileChampionType.NC$getHostileChampionType() == HostileChampionType.Blazing) {
-                cir.setReturnValue(false);
-            }
-        }
-    }
-    @Inject(method = "isHarmedByLava()Z", at = @At("HEAD"), cancellable = true)
-    private void isHarmedByLava_BlazingNoFire(CallbackInfoReturnable<Boolean> cir) {
-        if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
-        if (this instanceof IHostileChampionType iHostileChampionType) {
-            if (iHostileChampionType.NC$getHostileChampionType() == HostileChampionType.Blazing) {
-                cir.setReturnValue(false);
             }
         }
     }
@@ -145,13 +102,11 @@ public abstract class EntityMixin {
                         int blockId = this.worldObj.getBlockId(blockX, blockY, blockZ);
 
                         if (blockId > 0) {
-                            if (this.worldObj.getBlockId(prevBlockX, prevBlockY, prevBlockZ) == 0
-                                    && Block.fire.canBePlacedAt(this.worldObj, prevBlockX, prevBlockY, prevBlockZ, 0)) {
+                            if (this.worldObj.getBlockId(prevBlockX, prevBlockY, prevBlockZ) == 0) {
                                 candidatePositions.add(new ChunkPosition(prevBlockX, prevBlockY, prevBlockZ));
                             }
                             break;
                         }
-
 
                         prevBlockX = blockX;
                         prevBlockY = blockY;
@@ -164,11 +119,13 @@ public abstract class EntityMixin {
                 }
             }
         }
+
         for (ChunkPosition pos : candidatePositions) {
             if (this.rand.nextFloat() <= fireChance) {
                 this.worldObj.setBlock(pos.x, pos.y, pos.z, Block.fire.blockID);
             }
         }
+
         this.worldObj.playSoundEffect(
                 this.posX, this.posY, this.posZ,
                 "mob.ghast.fireball",

@@ -11,11 +11,11 @@
 - IntoDarkness
 
 - HostileChampions
-    - Blazing (orange)
-        - [DONE] +25% melee damage
-        - [DONE] ignites target when attacks if not wet
-        - [DONE] spreads fire on death if not wet
-        - [DONE] immune to fire and lava damage
+    - [FINISHED] Blazing (orange)
+        - [FINISHED] +25% melee damage
+        - [FINISHED] ignites target when attacks if not wet
+        - [FINISHED] spreads fire on death if not wet
+        - [FINISHED] immune to fire and lava damage
     - [DONE] Projecting (purple)
         - [DONE] +25% damage
         - [DONE] +100% attack reach in melee

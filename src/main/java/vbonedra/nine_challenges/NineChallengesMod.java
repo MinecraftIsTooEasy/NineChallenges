@@ -11,12 +11,12 @@ import vbonedra.nine_challenges.network.NineChallengesNetwork;
 public class NineChallengesMod implements ModInitializer {
     public static final String NINE_CHALLENGES_MOD_ID = "nine_challenges";
 
-    public static final Logger LOGGER = LogManager.getLogger(NINE_CHALLENGES_MOD_ID);
+    public static final Logger NINE_CHALLENGES_LOGGER = LogManager.getLogger(NINE_CHALLENGES_MOD_ID);
 
     @Override
     public void onInitialize() {
 
-        LOGGER.info("Hello MITE Dev world!");
+        NINE_CHALLENGES_LOGGER.info("Hello MITE Dev world!");
 
         ModResourceManager.addResourcePackDomain(NINE_CHALLENGES_MOD_ID);
 

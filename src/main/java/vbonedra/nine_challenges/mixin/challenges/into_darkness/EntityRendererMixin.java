@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import vbonedra.nine_challenges.challenge.Challenge;
 import vbonedra.nine_challenges.challenge.Challenges;
 
-// TODO: make a separate mod with very same render
+// TODO-META: make a separate mod with very same render
 @Mixin(EntityRenderer.class)
 public abstract class EntityRendererMixin {
 

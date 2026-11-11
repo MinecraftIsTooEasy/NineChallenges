@@ -23,7 +23,7 @@ public class ExampleEvent extends Handlers {
         Handlers.Initialization.register(new IInitializationListener() {
             @Override
             public void onClientStarted(Minecraft client) {
-                NineChallengesMod.LOGGER.info("Hello events!");
+                NineChallengesMod.NINE_CHALLENGES_LOGGER.info("Hello events!");
             }
         });
     }

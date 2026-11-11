@@ -78,6 +78,8 @@ loom {
             String name = project.username
             String width = project.screen_width
             String height = project.screen_height
+
+            vmArgs "-Duser.language=en", "-Duser.country=US"
             programArgs "--userProperties", "{}", "--username", name, "--session", "a.a.a.a", "--width", width, "--height", height
         }
 //        server {
@@ -85,6 +87,7 @@ loom {
 //        }
     }
 }
+
 
 processResources {
     inputs.properties(
