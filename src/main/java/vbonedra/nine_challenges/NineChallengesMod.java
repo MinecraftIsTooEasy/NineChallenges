@@ -6,6 +6,7 @@ import net.fabricmc.api.ModInitializer;
 import net.xiaoyu233.fml.ModResourceManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import vbonedra.nine_challenges.network.NineChallengesNetwork;
 
 public class NineChallengesMod implements ModInitializer {
     public static final String NINE_CHALLENGES_MOD_ID = "nine_challenges";
@@ -18,6 +19,8 @@ public class NineChallengesMod implements ModInitializer {
         LOGGER.info("Hello MITE Dev world!");
 
         ModResourceManager.addResourcePackDomain(NINE_CHALLENGES_MOD_ID);
+
+        NineChallengesNetwork.init();
 
         ExampleEvent.register();
     }

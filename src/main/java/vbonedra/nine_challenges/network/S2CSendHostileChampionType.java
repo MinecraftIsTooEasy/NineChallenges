@@ -5,16 +5,16 @@ import moddedmite.rustedironcore.network.Packet;
 import moddedmite.rustedironcore.network.PacketByteBuf;
 import vbonedra.nine_challenges.util.HostileChampionTypeCache;
 
-public class S2CResponseHostileChampionType implements Packet {
+public class S2CSendHostileChampionType implements Packet {
     private final int entityId;
     private final byte hostileChampionType;
 
-    public S2CResponseHostileChampionType(int entityId, byte hostileChampionType) {
+    public S2CSendHostileChampionType(int entityId, byte hostileChampionType) {
         this.entityId = entityId;
         this.hostileChampionType = hostileChampionType;
     }
 
-    public S2CResponseHostileChampionType(PacketByteBuf buf) {
+    public S2CSendHostileChampionType(PacketByteBuf buf) {
         this.entityId = buf.readInt();
         this.hostileChampionType = buf.readByte();
     }
@@ -34,6 +34,6 @@ public class S2CResponseHostileChampionType implements Packet {
 
     @Override
     public ResourceLocation getChannel() {
-        return NineChallengesNetwork.RESPONSE_HOSTILE_CHAMPION_TYPE;
+        return NineChallengesNetwork.HOSTILE_CHAMPION_TYPE;
     }
 }

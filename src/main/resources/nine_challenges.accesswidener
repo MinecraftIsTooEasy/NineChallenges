@@ -5,3 +5,5 @@ accessible field net/minecraft/GuiScreen fontRenderer Lnet/minecraft/FontRendere
 accessible method net/minecraft/GuiIngame func_110327_a (II)V
 accessible field net/minecraft/GuiEnchantment enchantingTableGuiTextures Lnet/minecraft/ResourceLocation;
 accessible method net/minecraft/WorldGenerator setBlockAndMetadata (Lnet/minecraft/World;IIIII)V
+accessible method net/minecraft/Damage getResponsibleEntity ()Lnet/minecraft/Entity;
+accessible method net/minecraft/EntityLiving isAIEnabled ()Z

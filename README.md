@@ -1,6 +1,6 @@
 # NineChallenges: SPD challenges
 
-DONE:
+[DONE]
 
 - vanilla gui
 - Pharmacophobia
@@ -10,10 +10,32 @@ DONE:
 - BarrenLands
 - IntoDarkness
 
+- HostileChampions
+    - Blazing (orange)
+        - [DONE] +25% melee damage
+        - [DONE] ignites target when attacks if not wet
+        - [DONE] spreads fire on death if not wet
+        - [DONE] immune to fire and lava damage
+    - [DONE] Projecting (purple)
+        - [DONE] +25% damage
+        - [DONE] +100% attack reach in melee
+    - Antimagic (green)
+        - [DONE] -50% damage taken
+        - immune to enchants like sharpness, fire aspect, looting, etc.
+    - Giant
+        - +100% hitbox and model, can spawn only if there's enough space
+        - [DONE] -80% damage
+    - Blessed (yellow)
+        - [DONE] +300% regeneration speed
+        - [PLAYTESTED] when attacked by someone requires silver or magic aspects
+    - Growing (red)
+        - +20% regeneration speed
+        - +20% regeneration amount
+        - +20% damage
+        - +20% effective HP (max hp and hp, so 12/20 with 45% increase is 17.4/29)
+        - increases by 1% every 640 ticks it exists and every 80 ticks it has target
 
-
-
-TODO:
+[TODO]
 - challenges (easiest to hardest in terms of implementing)
     - HostileChampions (10% chance to spawn with random type)
         - it requires adding new mob modifier like hostileChampionType from HaTE + it requires coding a few champion logics, just takes lots of time

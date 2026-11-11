@@ -15,14 +15,11 @@ public final class NineChallengesNetwork {
     private NineChallengesNetwork() {}
 
     public static final String CHANNEL = NINE_CHALLENGES_MOD_ID; // TODO: use ResourceLocation
-    public static final ResourceLocation REQUEST_HOSTILE_CHAMPION_TYPE = new ResourceLocation(NINE_CHALLENGES_MOD_ID + ":request.hostileChampionType");
-    public static final ResourceLocation RESPONSE_HOSTILE_CHAMPION_TYPE = new ResourceLocation(NINE_CHALLENGES_MOD_ID + ":response.hostileChampionType");
+    public static final ResourceLocation HOSTILE_CHAMPION_TYPE = new ResourceLocation(NINE_CHALLENGES_MOD_ID + ":hostileChampionType");
 
     public static void init() {
-        PacketReader.registerServerPacketReader(REQUEST_HOSTILE_CHAMPION_TYPE, C2SRequestHostileChampionType::new);
-
         if (!FishModLoader.isServer()) {
-            PacketReader.registerClientPacketReader(RESPONSE_HOSTILE_CHAMPION_TYPE, S2CResponseHostileChampionType::new);
+            PacketReader.registerClientPacketReader(HOSTILE_CHAMPION_TYPE, S2CSendHostileChampionType::new);
         }
     }
 
