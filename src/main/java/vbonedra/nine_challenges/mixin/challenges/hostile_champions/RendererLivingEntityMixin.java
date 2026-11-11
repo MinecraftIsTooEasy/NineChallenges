@@ -8,20 +8,24 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import vbonedra.nine_challenges.util.HostileChampionType;
+import vbonedra.nine_challenges.util.HostileChampion;
 import vbonedra.nine_challenges.util.HostileChampionTypeGetter;
 
 import static vbonedra.nine_challenges.NineChallengesMod.NINE_CHALLENGES_MOD_ID;
-import static vbonedra.nine_challenges.util.HostileChampionType.colorMap;
+import static vbonedra.nine_challenges.util.HostileChampion.colorMap;
 
 @Mixin(RendererLivingEntity.class)
 public abstract class RendererLivingEntityMixin {
 
-    // TODO: breaks for slime, donkey
+    // TODO: breaks for
+    //  slime - breaks core-outline render
+    //  donkey and horse - no overlay
+    //  chicken - static overlay with no scaling
+    //  sheep - static overlay under wool
 
     @Unique private static final float overlayScale = 1.01F;
     @Unique private static final float modelCenterY = 12.0F * 0.0625F;
-    @Unique private static final float overlaySpeed = 0.0025F;
+    @Unique private static final float overlaySpeed = 0.0044F;
     @Unique private static final float overlayBrightness = 1F;
     @Unique private static final ResourceLocation championOverlay = new ResourceLocation(NINE_CHALLENGES_MOD_ID, "textures/entity/champion_overlay.png");
 
@@ -32,7 +36,7 @@ public abstract class RendererLivingEntityMixin {
         if (entity.isInvisible()) return;
 
         byte hostileChampionType = HostileChampionTypeGetter.getHostileChampionType(entity);
-        if (!HostileChampionType.hasAnyHostileChampionType(hostileChampionType)) return;
+        if (!HostileChampion.hasAnyHostileChampionType(hostileChampionType)) return;
 
         int color = colorMap.get(hostileChampionType);
         float r = ((color >> 16) & 255) / 255.0F * overlayBrightness;

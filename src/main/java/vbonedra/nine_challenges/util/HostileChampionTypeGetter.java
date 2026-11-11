@@ -6,19 +6,19 @@ public class HostileChampionTypeGetter {
 
     public static byte getHostileChampionType(Entity entity) {
         if (entity == null || entity.worldObj == null) {
-            return HostileChampionType.Vanilla;
+            return HostileChampion.Vanilla;
         }
 
         if (!entity.worldObj.isRemote) {
             if (entity instanceof IHostileChampionType) {
                 byte type = ((IHostileChampionType) entity).NC$getHostileChampionType();
-                return type == HostileChampionType.Unset ? HostileChampionType.Vanilla : type;
+                return type == HostileChampion.Unset ? HostileChampion.Vanilla : type;
             }
-            return HostileChampionType.Vanilla;
+            return HostileChampion.Vanilla;
         }
 
         Byte cachedType = HostileChampionTypeCache.clientHostileChampionTypeMap.get(entity.entityId);
-        return cachedType != null ? cachedType : HostileChampionType.Vanilla;
+        return cachedType != null ? cachedType : HostileChampion.Vanilla;
     }
 
 }

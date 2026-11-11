@@ -17,11 +17,11 @@
         - [FINISHED] spreads fire on death if not wet
         - [FINISHED] immune to fire and lava damage
     - [DONE] Projecting (purple)
-        - [DONE] +25% damage
-        - [DONE] +100% attack reach in melee
+        - [FINISHED] +25% damage
+        - [FINISHED, but there are some niche cases to think about, like creeper having x2 entity explosion yet same damage just on wider area] +100% attack reach in melee
     - Antimagic (green)
         - [DONE] -50% damage taken
-        - immune to enchants like sharpness, fire aspect, looting, etc.
+        - [DONE] immune to enchants like sharpness, fire aspect, looting, etc.
     - Giant
         - +100% hitbox and model, can spawn only if there's enough space
         - [DONE] -80% damage

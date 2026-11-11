@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import vbonedra.nine_challenges.challenge.Challenge;
 import vbonedra.nine_challenges.network.S2CSendHostileChampionType;
-import vbonedra.nine_challenges.util.HostileChampionType;
+import vbonedra.nine_challenges.util.HostileChampion;
 import vbonedra.nine_challenges.util.IHostileChampionType;
 
 import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
@@ -28,7 +28,7 @@ public class EntityTrackerEntryMixin {
         if (!(this.myEntity instanceof IHostileChampionType)) return;
 
         byte hostileChampionType = ((IHostileChampionType) this.myEntity).NC$getHostileChampionType();
-        if (hostileChampionType == HostileChampionType.Unset) return;
+        if (hostileChampionType == HostileChampion.Unset) return;
 
         Network.sendToClient(player, new S2CSendHostileChampionType(this.myEntity.entityId, hostileChampionType));
     }
