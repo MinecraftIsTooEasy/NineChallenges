@@ -18,16 +18,16 @@
         - [FINISHED] immune to fire and lava damage
     - [DONE] Projecting (purple)
         - [FINISHED] +25% damage
-        - [FINISHED, but there are some niche cases to think about, like creeper having x2 entity explosion yet same damage just on wider area] +100% attack reach in melee
+        - [FINISHED, but there are some niche cases to think about, like creeper having x2 entity explosion yet same damage just on wider area. also animals unchecked] +100% attack reach in melee
     - Antimagic (green)
-        - [DONE] -50% damage taken
-        - [DONE] immune to enchants like sharpness, fire aspect, looting, etc.
+        - [FINISHED] -50% damage taken
+        - [DONE, but not all enchants] immune to enchants like sharpness, fire aspect, looting, etc.
     - Giant
         - +100% hitbox and model, can spawn only if there's enough space
-        - [DONE] -80% damage
+        - -80% damage
     - Blessed (yellow)
         - [DONE] +300% regeneration speed
-        - [PLAYTESTED] when attacked by someone requires silver or magic aspects
+        - [FINISHED] when attacked by someone requires silver or magic aspects
     - Growing (red)
         - +20% regeneration speed
         - +20% regeneration amount
