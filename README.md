@@ -15,8 +15,8 @@ DONE:
 
 TODO:
 - challenges (easiest to hardest in terms of implementing)
-    - HostileChampions
-        - it requires adding new mob modifier like celestialType from HaTE + it requires coding a few champion logics, just takes lots of time
+    - HostileChampions (10% chance to spawn with random type)
+        - it requires adding new mob modifier like hostileChampionType from HaTE + it requires coding a few champion logics, just takes lots of time
         - hostile champions must have charged creeper like glow with custom texture for each champion or must have colored particles
         - maybe death from any champion must have custom "BTWCE:NM-like" death sentence
   - SwarmIntelligence
@@ -48,32 +48,30 @@ TODO:
     - blue wither skulls appear more often
 ## Hostile Champions
 `You're not the only one who can level up!`
-- hostile mobs could spawn with champion buff
+- hostile mobs could spawn with champion buff (only non-boss hostiles)
     - Blazing (orange)
         - +25% melee damage
-        - ignites target when attacks
-        - spreads fire on death
-        - won't ignite or spread flame if wet
-        - won't take damage from fire
+        - ignites target when attacks if not wet
+        - spreads fire on death if not wet
+        - immune to fire and lava damage
     - Projecting (purple)
-        - +25% projectile damage
-        - +100% damage area
+        - +25% damage when shooting
+        - +100% attack reach in melee
     - Antimagic (green)
-        - -50% damage taken if weapon has magic aspect
-        - immune to enchants
+        - -50% damage taken
+        - immune to enchants like sharpness, fire aspect, looting, etc.
     - Giant
-        - +100% hitbox and model
-        - +300% heath
+        - +100% hitbox and model, can spawn only if there's enough space
+        - -80% damage
     - Blessed (yellow)
         - +300% regeneration speed
-        - +300% regeneration amount
         - when attacked in melee requires silver or magic aspects
     - Growing (red)
         - +20% regeneration speed
         - +20% regeneration amount
         - +20% damage
         - +20% effective HP (max hp and hp, so 12/20 with 45% increase is 17.4/29)
-        - increases by 1% every 600 ticks it exists and every 100 ticks it has target
+        - increases by 1% every 640 ticks it exists and every 80 ticks it has target
 ## On Diet
 `Food's already scarce, but you have to watch your portions as well!`
 - phytonutrient and protein values lowered to 1/3

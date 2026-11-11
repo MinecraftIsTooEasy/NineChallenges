@@ -21,6 +21,14 @@ challenge.badder_bosses.description.detailed=
 challenge.hostile_champions.title=Hostile Champions
 challenge.hostile_champions.description.short=
 challenge.hostile_champions.description.detailed=
+entity.prefix.pre=""
+entity.prefix.post=" "
+entity.challenge.hostile_champions.blazing.name=Blazing
+entity.challenge.hostile_champions.projecting.name=Projecting
+entity.challenge.hostile_champions.antimagic.name=antimagic
+entity.challenge.hostile_champions.giant.name=Giant
+entity.challenge.hostile_champions.blessed.name=Blessed
+entity.challenge.hostile_champions.growing.name=Growing
 
 challenge.on_diet.title=On Diet
 challenge.on_diet.description.short="Food's already scarce, but you have to watch your portions as well!"

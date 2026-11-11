@@ -21,18 +21,12 @@ public abstract class EntityLivingBaseMixin extends Entity {
     @Unique private static final UUID darknessSlownessUUID = UUID.nameUUIDFromBytes((NINE_CHALLENGES_MOD_ID+":darkness_slow").getBytes(StandardCharsets.UTF_8));
     @Unique private static final double darknessSlownessAdd = -0.2D;
 
+    @Shadow public abstract BaseAttributeMap getAttributeMap();
+    @Shadow public abstract boolean isPotionActive(Potion par1Potion);
+
     public EntityLivingBaseMixin(World par1World) {
         super(par1World);
     }
-
-    @Shadow
-    public abstract BaseAttributeMap getAttributeMap();
-
-    @Shadow
-    public abstract PotionEffect getActivePotionEffect(int potion_id);
-
-    @Shadow
-    public abstract boolean isPotionActive(Potion par1Potion);
 
     @Inject(method = "onLivingUpdate", at = @At("HEAD"))
     private void onLivingUpdate_SlownessInDarkness(CallbackInfo ci) {
