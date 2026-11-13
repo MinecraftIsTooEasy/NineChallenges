@@ -12,7 +12,6 @@ import vbonedra.nine_challenges.challenge.Challenges;
 @Mixin(SpawnerAnimals.class)
 public abstract class SpawnerAnimalsMixin {
 
-    // TODO: playtest needed
     @Redirect(method = "trySpawningHostileMobs", at = @At(value = "INVOKE", target = "Lnet/minecraft/WorldServer;getClosestPlayer(DDDDZ)Lnet/minecraft/EntityPlayer;"))
     private EntityPlayer trySpawningHostileMobs_DarknessSpawn(WorldServer world, double x, double y, double z, double distance, boolean mustBeAlive) {
         if (Challenges.isChallengeEnabled(Challenge.INTO_DARKNESS) && distance == 8.0D && !mustBeAlive) {

@@ -5,14 +5,12 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vbonedra.nine_challenges.challenge.Challenge;
 import vbonedra.nine_challenges.util.HostileChampion;
 import vbonedra.nine_challenges.util.IHostileChampionType;
 
 import static vbonedra.nine_challenges.NineChallengesMod.NINE_CHALLENGES_LOGGER;
 import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
-import static vbonedra.nine_challenges.util.HostileChampion.championBlazingFireAspectSeconds;
 
 @Mixin(EntityLivingBase.class)
 public abstract class EntityLivingBaseMixin extends Entity implements IHostileChampionType {
@@ -62,11 +60,11 @@ public abstract class EntityLivingBaseMixin extends Entity implements IHostileCh
                     this.NC$setHostileChampionType(hostileChampionType);
                 }
             }
-            this.NC$setHostileChampionType(HostileChampion.Antimagic);
+            this.NC$setHostileChampionType(HostileChampion.Blazing);
         }
     }
 
-    @ModifyConstant(method = "onLivingUpdate()V", constant = @Constant(floatValue = 0.1F))
+    @ModifyConstant(method = "onLivingUpdate()V", constant = @Constant(floatValue = 0.1F)) // TODO: find better way + move to blessed package
     private float onLivingUpdate_ModifyRegenPercentage(float original) {
         if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return original;
         byte hostileChampionType = this.NC$getHostileChampionType();

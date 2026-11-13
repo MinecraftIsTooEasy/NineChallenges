@@ -11,6 +11,7 @@ import vbonedra.nine_challenges.challenge.Challenge;
 import vbonedra.nine_challenges.challenge.Challenges;
 
 // TODO-META: make a separate mod with very same render
+// TODO: its better to rewrite without using @ModifyConstant, since it cant be compatible with other mods that change this render
 @Mixin(EntityRenderer.class)
 public abstract class EntityRendererMixin {
 

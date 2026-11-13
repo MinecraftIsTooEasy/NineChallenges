@@ -39,6 +39,9 @@ public class HostileChampion {
     public static final float championAntimagicDamageResistanceMultiplier = 0.5F;
 
     public static final byte Giant = initHostileChampionType(4, "entity.challenge.hostile_champions.giant.name", 0x0088ff);
+    public static final float championGiantScale = 2.0F;
+    public static final float championGiantReachMultiplier = 1.5F;
+    public static final float championGiantDamageResistanceMultiplier = 0.2F;
 
     public static final byte Blessed = initHostileChampionType(5, "entity.challenge.hostile_champions.blessed.name", 0xffff00);
 
@@ -59,7 +62,7 @@ public class HostileChampion {
         return (byte) (n >= Giant ? n + 1 : n);
     }
 
-    public static String getPrefix(byte hostileChampionType) { // TODO: mixin to entity name
+    public static String getPrefix(byte hostileChampionType) { // TODO: add mixin to entity name
         if (hostileChampionType < 1) return "";
         String pre = StatCollector.translateToLocal("entity.prefix.pre");
         pre = Objects.equals(pre, "") ? "" : pre;

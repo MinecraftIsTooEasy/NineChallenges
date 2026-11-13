@@ -10,7 +10,7 @@
 - BarrenLands
 - IntoDarkness
 
-- HostileChampions
+- HostileChampions ("a few champion logics" haha, funny, imna kill m'self soon, ts's so bs)
     - [FINISHED] Blazing (orange)
         - [FINISHED] +25% melee damage
         - [FINISHED] ignites target when attacks if not wet
@@ -24,7 +24,7 @@
         - [DONE, but not all enchants] immune to enchants like sharpness, fire aspect, looting, etc.
     - Giant
         - +100% hitbox and model, can spawn only if there's enough space
-        - -80% damage
+        - [FINISHED] -80% damage
     - Blessed (yellow)
         - [DONE] +300% regeneration speed
         - [FINISHED] when attacked by someone requires silver or magic aspects

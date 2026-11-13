@@ -7,3 +7,4 @@ accessible field net/minecraft/GuiEnchantment enchantingTableGuiTextures Lnet/mi
 accessible method net/minecraft/WorldGenerator setBlockAndMetadata (Lnet/minecraft/World;IIIII)V
 accessible method net/minecraft/Damage getResponsibleEntity ()Lnet/minecraft/Entity;
 accessible method net/minecraft/EntityLiving isAIEnabled ()Z
+accessible method net/minecraft/RendererLivingEntity interpolateRotation (FFF)F
