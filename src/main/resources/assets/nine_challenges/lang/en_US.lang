@@ -19,8 +19,8 @@ challenge.badder_bosses.description.short=
 challenge.badder_bosses.description.detailed=
 
 challenge.hostile_champions.title=Hostile Champions
-challenge.hostile_champions.description.short=
-challenge.hostile_champions.description.detailed=
+challenge.hostile_champions.description.short="You aren't the only who can level up."
+challenge.hostile_champions.description.detailed=Hostile champions spawn across the whole world.\nOne in ten creatures acquire one of six special champion types:\n§6Blazing§r - +25% damage, attacks set victim on fire for 4 seconds, explodes in flames on death\n§5Projecting§r - +25% damage, +50% reach\n§aAntimagic§r - takes 35% less damage, can't be harmed if weapon involves magic\n§bGiant§r - twice the size, +25% reach, takes 50% less damage, drops extra loot\n§eBlessed§r - regenerates four times faster, can't be harmed without magic or silver aspects\n§cGrowing§r - grows stronger the longer it fights, starting with +20% damage and effective health up to +300%
 entity.prefix.pre=
 entity.prefix.post=
 entity.challenge.hostile_champions.blazing.name=Blazing
@@ -47,8 +47,8 @@ challenge.barren_land.description.short="There seems to be no healthy plants lef
 challenge.barren_land.description.detailed=The world looks sick.\nTree crowns are thin and small.\nLeaves drop fruits only when mined with effective tool.\nSaplings die.\n75% of flowers replaced by dead bushes.\nPumpkins barely spawn.\nCacti barely spawn.\nCrops grow only on fertilized farmland, and every growth consumes manure.\nGrass drops seed with 10% chance when mined by effective tool.
 
 challenge.swarm_intelligence.title=Swarm Intelligence
-challenge.swarm_intelligence.description.short=
-challenge.swarm_intelligence.description.detailed=
+challenge.swarm_intelligence.description.short="Watch your back, they are going to follow you."
+challenge.swarm_intelligence.description.detailed=Monsters share location of their target to nearby monsters.
 
 challenge.into_darkness.title=Into Darkness
 challenge.into_darkness.description.short="You can barely see past your nose."
@@ -57,3 +57,4 @@ challenge.into_darkness.description.detailed=True darkness.\nNew moon's light is
 challenge.forbidden_runes.title=Forbidden Runes
 challenge.forbidden_runes.description.short="What a great world of magic! Huh? You forgot to learn the language?!"
 challenge.forbidden_runes.description.detailed=Enchantment language is incomprehensible, as well as Enchanting Table.\nAnvils could be used to work with magic.\nIt's still possible to carve runes on stones.
+

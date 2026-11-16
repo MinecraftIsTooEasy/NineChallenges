@@ -58,6 +58,7 @@
     "challenges.on_diet.ItemMixin",
     "challenges.pharmacophobia.EntityLivingBaseMixin",
     "challenges.pharmacophobia.EntityPotionMixin",
+    "challenges.swarm_intelligence.EntityLivingMixin",
     "gui.GuiCreateWorldAccessor",
     "gui.GuiCreateWorldMixin",
     "gui.GuiIngameMenuMixin",

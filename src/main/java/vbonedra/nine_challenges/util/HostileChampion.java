@@ -18,7 +18,7 @@ public class HostileChampion {
         return id;
     }
 
-    public static final float spawnChance = 1F;
+    public static final float spawnChance = 0.1F;
 
     public static final byte Unset = initHostileChampionType(-1, "", 0);
     public static final byte Vanilla = initHostileChampionType(0, "", 0);
@@ -35,7 +35,7 @@ public class HostileChampion {
     public static final float championProjectingDamageMultiplierRanged = 1.25F;
 
     public static final byte Antimagic = initHostileChampionType(3, "entity.challenge.hostile_champions.antimagic.name", 0x00ff00);
-    public static final float championAntimagicDamageResistanceMultiplier = 0.5F;
+    public static final float championAntimagicDamageResistanceMultiplier = 0.35F;
 
     public static final byte Giant = initHostileChampionType(4, "entity.challenge.hostile_champions.giant.name", 0x0088ff);
     public static final float championGiantScale = 1.9F;

@@ -37,14 +37,11 @@
         - [DONE] +20% up to +300% effective HP (max hp and hp, so 12/20 with 45% increase is 17.4/29)
         - [DONE] +0.05% every tick it sees target aka +1% when sees
         - [DONE] +5% when attacks target
+- [DONE] SwarmIntelligence
 
-[TODO]
+
+- [TODO]
 - challenges (easiest to hardest in terms of implementing)
-  - SwarmIntelligence
-    1) mobA starts targeting player ->
-    2) mobA looks for other mobs ->
-    3) other mobs start wandering to mobA's target location
-    - all mobs do this 3 steps. it might be hard to do and to optimize
   - BadderBosses
     - Dragon
       - change stats: +50% health;
