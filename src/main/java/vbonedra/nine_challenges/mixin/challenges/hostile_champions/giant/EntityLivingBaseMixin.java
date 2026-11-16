@@ -31,7 +31,8 @@ public abstract class EntityLivingBaseMixin implements IHostileChampionType {
     }
 
     @Redirect(method = "onDeath", at = @At(value = "INVOKE", target = "Lnet/minecraft/EntityLivingBase;dropFewItems(ZLnet/minecraft/DamageSource;)V"))
-    public void onDeath_GiantMoreDrop(EntityLivingBase instance, boolean par1, DamageSource damage_source) {
+    public void dropFewItems_in_onDeath_GiantMoreDrop(EntityLivingBase instance, boolean par1, DamageSource damage_source) {
+        this.dropFewItems(par1, damage_source);
         if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
 
         if (this.NC$getHostileChampionType() == HostileChampion.Giant) {
