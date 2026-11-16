@@ -15,7 +15,7 @@ gui.enchanting.gibberish.9=Ooh fancy.
 
 # challenges
 challenge.badder_bosses.title=Badder Bosses
-challenge.badder_bosses.description.short=
+challenge.badder_bosses.description.short="Bosses are much tougher with this challenge!"
 challenge.badder_bosses.description.detailed=
 
 challenge.hostile_champions.title=Hostile Champions

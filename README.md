@@ -2,52 +2,52 @@
 
 [DONE]
 
-- [DONE] vanilla gui
-- [DONE] Pharmacophobia
-- [DONE] FaithIsMyArmor
-- [DONE] OnDiet
-- [DONE] ForbiddenRunes
-- [DONE] BarrenLands
-- [DONE] IntoDarkness
-- [DONE] HostileChampions
+- vanilla gui
+- Pharmacophobia
+- FaithIsMyArmor
+- OnDiet
+- ForbiddenRunes
+- BarrenLands
+- IntoDarkness
+- HostileChampions
     - Blazing (orange)
-        - [DONE] +25% melee damage
-        - [DONE] ignites target when attacks if not wet
-        - [DONE] spreads fire on death if not wet
-        - [DONE] immune to fire and lava damage
+        - +25% melee damage
+        - ignites target when attacks if not wet
+        - spreads fire on death if not wet
+        - immune to fire and lava damage
     - Projecting (purple)
-        - [DONE] +25% melee damage or +50% ranged damage
-        - [DONE] +50% attack reach in melee
-        - [DONE] spawns only if it has AI
+        - +25% melee damage or +50% ranged damage
+        - +50% attack reach in melee
+        - spawns only if it has AI
     - Antimagic (green)
-        - [DONE] -50% damage taken
-        - [DONE] don't get damaged by magic aspect
-        - [DONE] spawns only if it can be damaged without magic aspect
+        - -50% damage taken
+        - don't get damaged by magic aspect
+        - spawns only if it can be damaged without magic aspect
     - Giant (blue)
-        - [DONE] +100% hitbox and model, can spawn only if there's enough space
-        - [DONE] -50% damage
-        - [DONE] creeper's explosions are 2 times more powerful
-        - [DONE] giants drop as many items as 4 regular mobs
+        - +100% hitbox and model, can spawn only if there's enough space
+        - -50% damage
+        - creeper's explosions are 2 times more powerful
+        - giants drop as many items as 4 regular mobs
     - Blessed (yellow)
-        - [DONE] +300% regeneration amount
-        - [DONE] when attacked by someone requires silver or magic aspects
-        - [DONE] spawns only if it can be damaged by magic or silver aspects
+        - +300% regeneration amount
+        - when attacked by someone requires silver or magic aspects
+        - spawns only if it can be damaged by magic or silver aspects
     - Growing (red) - make IGrowingChampion which would have setters and getters for regen-speed, regen-amount, damage-multiplier, effective-health-multiplier
-        - [DONE] +20% up to +300% damage
-        - [DONE] +20% up to +300% effective HP (max hp and hp, so 12/20 with 45% increase is 17.4/29)
-        - [DONE] +0.05% every tick it sees target aka +1% when sees
-        - [DONE] +5% when attacks target
-- [DONE] SwarmIntelligence
-
+        - +20% up to +300% damage
+        - +20% up to +300% effective HP (max hp and hp, so 12/20 with 45% increase is 17.4/29)
+        - +0.05% every tick it sees target aka +1% when sees
+        - +5% when attacks target
+- SwarmIntelligence
+    - Dragon
+        - +50% max health
+        - +25% extra pillars
+        - extra pillars and 25% of pillars have 2nd crystal in the middle of crystal
+    - Wither
+        - +35% max health
+        - can see through walls
+        - 15% of normal skulls are blue skulls
 
 - [TODO]
-- challenges (easiest to hardest in terms of implementing)
-  - BadderBosses
-    - Dragon
-      - change stats: +50% health;
-      - change worldgen: +100% crystals;
-      - add crystal post-explosion event;
-      - add dragon summoning mobs event;****
 
 - add BGS gui
 - maybe death from any champion must have custom "BTWCE:NM-like" death sentence
@@ -62,7 +62,6 @@
     - destroyed crystal charges up explosion that won't deal damage to dragon but would to other entities and blocks
 - Wither
     - wither has +33% health
-    - wither has +100% regeneration
     - wither can see through walls
     - blue wither skulls appear more often
 ## Hostile Champions

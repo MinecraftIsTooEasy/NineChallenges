@@ -4,6 +4,11 @@
   "compatibilityLevel": "JAVA_17",
   "target": "DEFAULT",
   "mixins": [
+    "challenges.badder_bosses.dragon.BiomeEndDecoratorMixin",
+    "challenges.badder_bosses.dragon.EntityDragonMixin",
+    "challenges.badder_bosses.dragon.WorldGenSpikesMixin",
+    "challenges.badder_bosses.wither.EntitySensesMixin",
+    "challenges.badder_bosses.wither.EntityWitherMixin",
     "challenges.barren_land.BlockLeavesMixin",
     "challenges.barren_land.BlockTallGrassMixin",
     "challenges.barren_land.render.BiomeGenBaseMixin",
