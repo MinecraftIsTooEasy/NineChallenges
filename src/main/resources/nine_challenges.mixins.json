@@ -46,6 +46,7 @@
     "challenges.hostile_champions.giant.EntityMixin",
     "challenges.hostile_champions.giant.RenderHorseMixin",
     "challenges.hostile_champions.giant.WorldMixin",
+    "challenges.hostile_champions.growing.EntityLivingBaseMixin",
     "challenges.hostile_champions.projecting.EntityLivingBaseMixin",
     "challenges.hostile_champions.projecting.EntityLivingMixin",
     "challenges.into_darkness.EntityLivingBaseMixin",

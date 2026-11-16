@@ -48,6 +48,10 @@ public class HostileChampion {
     public static final float championBlessedRegenerationMultiplier = 4F;
 
     public static final byte Growing = initHostileChampionType(6, "entity.challenge.hostile_champions.growing.name", 0xff0000);
+    public static final int championGrowingMinGrowTicks = 20 * 20;
+    public static final int championGrowingMaxGrowTicks = championGrowingMinGrowTicks + 5 * 60 * 20;
+    public static final float championGrowingAdditionalDamagePerTick = 0.01F / 20;
+    public static final float championGrowingAdditionalEffectiveHealthPerTick = 0.01F / 20;
 
 
     public static Set<Byte> getAllChampionTypes() {

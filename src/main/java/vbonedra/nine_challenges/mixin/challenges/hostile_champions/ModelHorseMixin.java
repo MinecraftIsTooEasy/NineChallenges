@@ -53,11 +53,16 @@ public abstract class ModelHorseMixin {
         GL11.glPushMatrix();
 
         try {
-            Minecraft.getMinecraft().getTextureManager().bindTexture(championOverlay);
+            Minecraft.getMinecraft().getTextureManager().bindTexture(getChampionOverlay(
+                    ((ModelBase) (Object) this).textureWidth,
+                    ((ModelBase) (Object) this).textureHeight,
+                    HostileChampionTypeGetter.getHostileChampionType(entity) == HostileChampion.Giant
+            ));
 
             GL11.glMatrixMode(GL11.GL_TEXTURE);
             GL11.glLoadIdentity();
-            GL11.glTranslatef(entity.ticksExisted * overlaySpeed, entity.ticksExisted * overlaySpeed, 0.0F);
+            float speed = entity.ticksExisted * overlaySpeed;
+            GL11.glTranslatef(speed, speed, speed);
             GL11.glMatrixMode(GL11.GL_MODELVIEW);
 
             GL11.glEnable(GL11.GL_TEXTURE_2D);

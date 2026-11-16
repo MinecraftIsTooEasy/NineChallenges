@@ -97,8 +97,6 @@ public abstract class EntityLivingBaseMixin extends Entity implements IHostileCh
     private void readEntityFromNBT(NBTTagCompound nbt, CallbackInfo ci) {
         if (nbt.hasKey("NCHostileChampionType")) {
             this.NC$setHostileChampionType(nbt.getByte("NCHostileChampionType"));
-        } else {
-            System.out.println("MISSING NBT KEY: NCHostileChampionType");
         }
     }
 

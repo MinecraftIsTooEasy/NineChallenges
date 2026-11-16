@@ -2,15 +2,14 @@
 
 [DONE]
 
-- vanilla gui
-- Pharmacophobia
-- FaithIsMyArmor
-- OnDiet
-- ForbiddenRunes
-- BarrenLands
-- IntoDarkness
-
-- HostileChampions
+- [DONE] vanilla gui
+- [DONE] Pharmacophobia
+- [DONE] FaithIsMyArmor
+- [DONE] OnDiet
+- [DONE] ForbiddenRunes
+- [DONE] BarrenLands
+- [DONE] IntoDarkness
+- [DONE] HostileChampions
     - Blazing (orange)
         - [DONE] +25% melee damage
         - [DONE] ignites target when attacks if not wet
@@ -34,18 +33,13 @@
         - [DONE] when attacked by someone requires silver or magic aspects
         - [DONE] spawns only if it can be damaged by magic or silver aspects
     - Growing (red) - make IGrowingChampion which would have setters and getters for regen-speed, regen-amount, damage-multiplier, effective-health-multiplier
-        - +20% up to +300% regeneration speed
-        - +20% up to +300% regeneration amount
-        - +20% up to +300% damage
-        - +20% up to +300% effective HP (max hp and hp, so 12/20 with 45% increase is 17.4/29)
-        - increases by 1% every 640 ticks it exists and every 80 ticks it has target
+        - [DONE] +20% up to +300% damage
+        - [DONE] +20% up to +300% effective HP (max hp and hp, so 12/20 with 45% increase is 17.4/29)
+        - [DONE] +0.05% every tick it sees target aka +1% when sees
+        - [DONE] +5% when attacks target
 
 [TODO]
 - challenges (easiest to hardest in terms of implementing)
-    - HostileChampions (10% chance to spawn with random type)
-        - it requires adding new mob modifier like hostileChampionType from HaTE + it requires coding a few champion logics, just takes lots of time
-        - hostile champions must have charged creeper like glow with custom texture for each champion or must have colored particles
-        - maybe death from any champion must have custom "BTWCE:NM-like" death sentence
   - SwarmIntelligence
     1) mobA starts targeting player ->
     2) mobA looks for other mobs ->
@@ -56,9 +50,10 @@
       - change stats: +50% health;
       - change worldgen: +100% crystals;
       - add crystal post-explosion event;
-      - add dragon summoning mobs event;
+      - add dragon summoning mobs event;****
 
 - add BGS gui
+- maybe death from any champion must have custom "BTWCE:NM-like" death sentence
 - add constant for configs and make challenge description dynamic (look into ShatteredBaubles EMI item info)
 
 ## Badder Bosses
