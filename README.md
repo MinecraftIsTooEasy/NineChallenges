@@ -59,7 +59,7 @@
       - add dragon summoning mobs event;
 
 - add BGS gui
-- add constant for configs and make translation dynamic (look into ShatteredBaubles EMI translation)
+- add constant for configs and make challenge description dynamic (look into ShatteredBaubles EMI item info)
 
 ## Badder Bosses
 `Bosses are much tougher with this challenge!`

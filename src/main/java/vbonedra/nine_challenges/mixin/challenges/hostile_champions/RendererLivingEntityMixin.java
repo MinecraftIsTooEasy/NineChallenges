@@ -32,6 +32,7 @@ public abstract class RendererLivingEntityMixin {
         }
     }
 
+    // TODO: check all entities
     @Inject(method = "renderModelGlowing(Lnet/minecraft/EntityLivingBase;FFFFFF)V", at = @At("RETURN"))
     private void renderModelGlowing_ChampionOverlay(EntityLivingBase entity, float limbSwing, float limbSwingAmount, float ageInTicks, float headYaw, float headPitch, float scale, CallbackInfo ci) {
         if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
