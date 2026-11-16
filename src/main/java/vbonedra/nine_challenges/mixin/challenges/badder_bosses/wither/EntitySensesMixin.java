@@ -1,6 +1,7 @@
 package vbonedra.nine_challenges.mixin.challenges.badder_bosses.wither;
 
 import net.minecraft.Entity;
+import net.minecraft.EntityLiving;
 import net.minecraft.EntitySenses;
 import net.minecraft.EntityWither;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,7 +16,7 @@ import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
 @Mixin(EntitySenses.class)
 public abstract class EntitySensesMixin {
 
-    @Shadow Entity entityObj;
+    @Shadow EntityLiving entityObj;
 
     @Inject(method = "canSee(Lnet/minecraft/Entity;Z)Z", at = @At("HEAD"), cancellable = true)
     private void canSee_WitherXray(Entity entity, boolean ignore_leaves, CallbackInfoReturnable<Boolean> cir) {

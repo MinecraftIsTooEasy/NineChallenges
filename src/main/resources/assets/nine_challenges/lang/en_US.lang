@@ -16,7 +16,7 @@ gui.enchanting.gibberish.9=Ooh fancy.
 # challenges
 challenge.badder_bosses.title=Badder Bosses
 challenge.badder_bosses.description.short="Bosses are much tougher with this challenge!"
-challenge.badder_bosses.description.detailed=
+challenge.badder_bosses.description.detailed=§5Ender Dragon§r:\n+50% max health\n+15% extra pillars in the End\nExtra pillars and 25% of regular pillars have a second crystal embedded mid-pillar\n§8Wither§r:\n+35% max health\nSenses targets through walls\n15% of normal skulls become blue
 
 challenge.hostile_champions.title=Hostile Champions
 challenge.hostile_champions.description.short="You aren't the only who can level up."

@@ -7,6 +7,7 @@
     "challenges.badder_bosses.dragon.BiomeEndDecoratorMixin",
     "challenges.badder_bosses.dragon.EntityDragonMixin",
     "challenges.badder_bosses.dragon.WorldGenSpikesMixin",
+    "challenges.badder_bosses.wither.EntityLivingBaseMixin",
     "challenges.badder_bosses.wither.EntitySensesMixin",
     "challenges.badder_bosses.wither.EntityWitherMixin",
     "challenges.barren_land.BlockLeavesMixin",

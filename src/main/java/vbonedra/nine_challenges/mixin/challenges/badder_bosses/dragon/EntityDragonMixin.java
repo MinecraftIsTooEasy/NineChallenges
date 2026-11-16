@@ -26,7 +26,7 @@ public abstract class EntityDragonMixin extends EntityLiving {
 
         AttributeInstance maxHealth = this.getEntityAttribute(SharedMonsterAttributes.maxHealth);
         if (maxHealth != null) {
-            maxHealth.setAttribute(maxHealth.getAttributeValue() * 2.0D);
+            maxHealth.setAttribute(maxHealth.getAttributeValue() * 1.5D);
         }
     }
 

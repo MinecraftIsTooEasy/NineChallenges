@@ -40,7 +40,7 @@
 - SwarmIntelligence
     - Dragon
         - +50% max health
-        - +25% extra pillars
+        - +15% extra pillars
         - extra pillars and 25% of pillars have 2nd crystal in the middle of crystal
     - Wither
         - +35% max health

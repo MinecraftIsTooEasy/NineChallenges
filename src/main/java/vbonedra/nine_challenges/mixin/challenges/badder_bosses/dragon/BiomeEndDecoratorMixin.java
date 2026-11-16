@@ -27,7 +27,7 @@ public abstract class BiomeEndDecoratorMixin extends BiomeDecorator {
     private void decorate_ExtraPillar(CallbackInfo ci) {
         if (!isChallengeEnabled(Challenge.BADDER_BOSSES)) return;
 
-        if (this.randomGenerator.nextFloat() <= 0.3F) {
+        if (this.randomGenerator.nextFloat() <= 0.2F) {
             int x = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
             int z = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             int y = this.currentWorld.getTopSolidOrLiquidBlock(x, z);
