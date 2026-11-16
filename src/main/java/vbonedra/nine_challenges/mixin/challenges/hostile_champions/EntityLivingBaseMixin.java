@@ -31,7 +31,6 @@ public abstract class EntityLivingBaseMixin extends Entity implements IHostileCh
         super(world);
     }
 
-    // TODO: EntityBoneLord and EntityCube must spawn entities with same type, look into HaTE
     @Inject(method = "onEntityUpdate()V", at = @At("HEAD"))
     private void onEntityUpdate_HostileChampionTypeInit(CallbackInfo ci) {
         if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;

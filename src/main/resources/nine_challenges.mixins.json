@@ -26,6 +26,8 @@
     "challenges.forbidden_runes.FontRendererRuneMixin",
     "challenges.forbidden_runes.GuiEnchantmentMixin",
     "challenges.forbidden_runes.StringTranslateMixin",
+    "challenges.hostile_champions.EntityBoneLordMixin",
+    "challenges.hostile_champions.EntityCubicMixin",
     "challenges.hostile_champions.EntityLivingBaseMixin",
     "challenges.hostile_champions.EntityMixin",
     "challenges.hostile_champions.EntityTrackerEntryMixin",
