@@ -4,7 +4,6 @@ import net.minecraft.StatCollector;
 
 import java.util.*;
 
-// TODO-META: this works with types better than HaTE, so HaTE must be rewritten to be like this mod
 public class HostileChampion {
     public static final Map<Byte, String> langKeyMap = new HashMap<>();
     public static final Map<Byte, Integer> colorMap = new HashMap<>();
@@ -63,12 +62,9 @@ public class HostileChampion {
     }
 
     public static String getPrefix(byte hostileChampionType) {
+        System.out.println(StatCollector.translateToLocal(langKeyMap.get(hostileChampionType)) + " ");
         if (hasAnyHostileChampionType(hostileChampionType)) return "";
-        String pre = StatCollector.translateToLocal("entity.prefix.pre");
-        pre = Objects.equals(pre, "") ? "" : pre;
-        String post = StatCollector.translateToLocal("entity.prefix.post");
-        post = Objects.equals(post, "") ? "" : post;
-        return pre + StatCollector.translateToLocal(langKeyMap.get(hostileChampionType)) + post;
+        return StatCollector.translateToLocal(langKeyMap.get(hostileChampionType)) + " ";
     }
 
 }
