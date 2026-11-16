@@ -14,27 +14,24 @@ import vbonedra.nine_challenges.util.IHostileChampionType;
 import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
 
 @Mixin(EntityLivingBase.class)
-public abstract class EntityLivingBaseMixin extends Entity {
-
-    public EntityLivingBaseMixin(World par1World) {
-        super(par1World);
-    }
+public abstract class EntityLivingBaseMixin implements IHostileChampionType {
 
     // TODO: check if this works for all mobs, for example, enderman changes height and width at some point and its hitbox stays the same
     //  same for spiders and maybe all mobs that has scaling, like bats and maybe slimes, needs checking for each mob
-    @Inject(method = "applyEntityAttributes()V", at = @At("RETURN"))
-    private void applyEntityAttributes_HostileChampionTypeInitialization(CallbackInfo ci) {
-        if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
-        if (this instanceof IHostileChampionType iHostileChampionType && iHostileChampionType.NC$getHostileChampionType() == HostileChampion.Giant) {
-            this.height *= 2;
-            this.width *= 2;
-        }
-    }
+//    @Inject(method = "applyEntityAttributes()V", at = @At("RETURN"))
+//    private void applyEntityAttributes_HostileChampionTypeInitialization(CallbackInfo ci) {
+//        if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
+//        if (this instanceof IHostileChampionType iHostileChampionType && iHostileChampionType.NC$getHostileChampionType() == HostileChampion.Giant) {
+//            this.height *= 2;
+//            this.width *= 2;
+//        }
+//    }
 
     @Inject(method = "attackEntityFrom(Lnet/minecraft/Damage;)Lnet/minecraft/EntityDamageResult;", at = @At("HEAD"))
     private void attackEntityFrom_ResistanceGiant(Damage damage, CallbackInfoReturnable<EntityDamageResult> cir) {
         if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
-        if (this instanceof IHostileChampionType iHostileChampionType && iHostileChampionType.NC$getHostileChampionType() == HostileChampion.Giant) {
+
+        if (this.NC$getHostileChampionType() == HostileChampion.Giant) {
             damage.setAmount(damage.getAmount() * HostileChampion.championGiantDamageResistanceMultiplier);
         }
     }

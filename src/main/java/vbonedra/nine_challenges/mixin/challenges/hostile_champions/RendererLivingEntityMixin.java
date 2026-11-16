@@ -23,7 +23,6 @@ public abstract class RendererLivingEntityMixin {
     @Inject(method = "renderModel(Lnet/minecraft/EntityLivingBase;FFFFFF)V", at = @At("HEAD"))
     private void renderModel_GiantScale(EntityLivingBase entity, float limbSwing, float limbSwingAmount, float ageInTicks, float headYaw, float headPitch, float scale, CallbackInfo ci) {
         if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
-        if (entity instanceof EntityCubic) return;
 
         byte hostileChampionType = HostileChampionTypeGetter.getHostileChampionType(entity);
         if (hostileChampionType == HostileChampion.Giant) {

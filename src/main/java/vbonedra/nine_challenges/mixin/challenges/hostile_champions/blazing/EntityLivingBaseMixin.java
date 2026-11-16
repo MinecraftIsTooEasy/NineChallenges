@@ -17,22 +17,26 @@ import static vbonedra.nine_challenges.util.HostileChampion.championBlazingFireA
 @Mixin(EntityLivingBase.class)
 public abstract class EntityLivingBaseMixin extends Entity implements IHostileChampionType {
 
-
     public EntityLivingBaseMixin(World par1World) {
         super(par1World);
     }
-
 
     @Inject(method = "attackEntityFrom(Lnet/minecraft/Damage;)Lnet/minecraft/EntityDamageResult;", at = @At("HEAD"))
     private void attackEntityFrom_BlazingBuff(Damage damage, CallbackInfoReturnable<EntityDamageResult> cir) {
         if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
 
         Entity attacker = damage.getResponsibleEntity();
-        if (attacker instanceof IHostileChampionType championAttacker) {
-            byte type = championAttacker.NC$getHostileChampionType();
-            if (type == HostileChampion.Blazing) {
-                if (!this.isWet()) {
+        if (attacker instanceof IHostileChampionType iHostileChampionType) {
+            if (iHostileChampionType.NC$getHostileChampionType() == HostileChampion.Blazing) {
+                if (!this.isWet() && !attacker.isWet()) {
                     damage.setAmount(damage.getAmount() * HostileChampion.championBlazingDamageMultiplier);
+                } else {
+                    this.worldObj.playSoundEffect(
+                            this.posX, this.posY, this.posZ,
+                            "random.fizz",
+                            0.5F,
+                            2.6F + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.8F
+                    );
                 }
             }
         }
@@ -41,12 +45,13 @@ public abstract class EntityLivingBaseMixin extends Entity implements IHostileCh
     @Inject(method = "attackEntityFrom(Lnet/minecraft/Damage;)Lnet/minecraft/EntityDamageResult;", at = @At("RETURN"))
     private void attackEntityFrom_BlazingIgnite(Damage damage, CallbackInfoReturnable<EntityDamageResult> cir) {
         if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
-        EntityDamageResult result = cir.getReturnValue();
 
+        EntityDamageResult result = cir.getReturnValue();
         if (result == null || !result.entityLostHealth()) return;
+
         if (damage.getResponsibleEntity() instanceof IHostileChampionType iHostileChampionType
                 && iHostileChampionType.NC$getHostileChampionType() == HostileChampion.Blazing
-                && !this.worldObj.isRemote
+                && this.worldObj.isWorldServer()
         ) {
             if (this.isWet()) {
                 this.worldObj.playSoundEffect(

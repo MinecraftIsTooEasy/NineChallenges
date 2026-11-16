@@ -17,6 +17,7 @@ public abstract class EntityLivingMixin {
     @Inject(method = "getReach()F", at = @At("RETURN"), cancellable = true)
     private void getReach_Projecting(CallbackInfoReturnable<Float> cir) {
         if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
+
         if (((IHostileChampionType) this).NC$getHostileChampionType() == HostileChampion.Projecting) {
             cir.setReturnValue(cir.getReturnValueF() * HostileChampion.championProjectingReachMultiplier);
         }

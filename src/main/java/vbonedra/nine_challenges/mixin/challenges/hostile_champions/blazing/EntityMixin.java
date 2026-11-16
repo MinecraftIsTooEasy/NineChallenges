@@ -7,6 +7,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vbonedra.nine_challenges.challenge.Challenge;
 import vbonedra.nine_challenges.util.HostileChampion;
 import vbonedra.nine_challenges.util.IHostileChampionType;
@@ -29,27 +30,31 @@ public abstract class EntityMixin {
     @Shadow protected Random rand;
     @Shadow public abstract boolean isWet();
 
+    @Shadow public abstract EntityLivingBase getAsEntityLivingBase();
+
     @Inject(method = "setDead()V", at = @At("HEAD"))
-    private void setDead_BlazingBurst(CallbackInfo ci) {
-        if (this.isDead) return;
+    private void setDead_BlazingDeath(CallbackInfo ci) {
         if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
-        if (this.worldObj == null || this.worldObj.isRemote) return;
 
-        Object self = this;
-        if (!(self instanceof IHostileChampionType championEntity)) return;
-        if (championEntity.NC$getHostileChampionType() != HostileChampion.Blazing) return;
+        if (this.isDead) return;
+        if (this.worldObj == null || this.worldObj.isWorldClient()) return;
 
-        if (self instanceof EntityLivingBase living && living.getHealth() > 0.0F) return;
+        if ((this instanceof IHostileChampionType iHostileChampionType)) {
+            if (iHostileChampionType.NC$getHostileChampionType() != HostileChampion.Blazing) return;
 
-        if (this.isWet()) {
-            this.worldObj.playSoundEffect(
-                    this.posX, this.posY, this.posZ,
-                    "random.fizz",
-                    0.5F,
-                    2.6F + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.8F
-            );
-        } else {
-            spawnFireBurst(HostileChampion.championBlazingExplosionSize, HostileChampion.championBlazingExplosionFireChance);
+            // safe to do since only instanceof EntityLivingBase has IHostileChampionTyp checked before
+            if (this.getAsEntityLivingBase().getHealth() > 0.0F) return;
+
+            if (this.isWet()) {
+                this.worldObj.playSoundEffect(
+                        this.posX, this.posY, this.posZ,
+                        "random.fizz",
+                        0.5F,
+                        2.6F + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.8F
+                );
+            } else {
+                spawnFireBurst(HostileChampion.championBlazingExplosionSize, HostileChampion.championBlazingExplosionFireChance);
+            }
         }
     }
 
@@ -125,4 +130,25 @@ public abstract class EntityMixin {
                 1.0F + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F
         );
     }
+
+    @Inject(method = "isImmuneTo(Lnet/minecraft/DamageSource;)Z", at = @At("RETURN"), cancellable = true)
+    private void isImmuneTo_Blazing(DamageSource damageSource, CallbackInfoReturnable<Boolean> cir) {
+        if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
+        if (this instanceof IHostileChampionType iHostileChampionType && iHostileChampionType.NC$getHostileChampionType() == HostileChampion.Antimagic) {
+            if (damageSource.hasMagicAspect()) {
+                if (damageSource.isArrowDamage()) {
+                    EntityArrow arrow = (EntityArrow) damageSource.getImmediateEntity();
+                    if (arrow.getLauncher() == null || !arrow.getLauncher().hasEnchantment(Enchantment.flame, true)) {
+                        cir.setReturnValue(false);
+                    }
+                } else {
+                    ItemStack item_stack = damageSource.getItemAttackedWith();
+                    if (item_stack == null || !item_stack.hasEnchantment(Enchantment.fireAspect, true)) {
+                        cir.setReturnValue(false);
+                    }
+                }
+            }
+        }
+    }
+
 }

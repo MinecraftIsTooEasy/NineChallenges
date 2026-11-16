@@ -12,22 +12,18 @@ import vbonedra.nine_challenges.util.IHostileChampionType;
 import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
 import static vbonedra.nine_challenges.util.HostileChampion.championBlazingFireAspectSeconds;
 
-@Mixin(EntityLivingBase.class)
-public abstract class EntityLivingBaseMixin extends Entity implements IHostileChampionType {
 
-    public EntityLivingBaseMixin(World par1World) {
-        super(par1World);
-    }
+@Mixin(EntityLivingBase.class)
+public abstract class EntityLivingBaseMixin {
 
     @Inject(method = "attackEntityFrom(Lnet/minecraft/Damage;)Lnet/minecraft/EntityDamageResult;", at = @At("HEAD"))
     private void attackEntityFrom_ProjectingBuff(Damage damage, CallbackInfoReturnable<EntityDamageResult> cir) {
         if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
 
         Entity attacker = damage.getResponsibleEntity();
-        if (attacker instanceof IHostileChampionType championAttacker) {
-            byte type = championAttacker.NC$getHostileChampionType();
-            if (type == HostileChampion.Projecting) {
-                damage.setAmount(damage.getAmount() * HostileChampion.championProjectingDamageMultiplier);
+        if (attacker instanceof IHostileChampionType iHostileChampionType) {
+            if (iHostileChampionType.NC$getHostileChampionType() == HostileChampion.Projecting) {
+                damage.setAmount(damage.getAmount() * (damage.isMelee() ? HostileChampion.championProjectingDamageMultiplierMelee : HostileChampion.championProjectingDamageMultiplierRanged));
             }
         }
     }

@@ -23,6 +23,7 @@ public abstract class EntityMixin {
     @Inject(method = "isImmuneTo(Lnet/minecraft/DamageSource;)Z", at = @At("RETURN"), cancellable = true)
     private void isImmuneTo_BlessedAspects(DamageSource damageSource, CallbackInfoReturnable<Boolean> cir) {
         if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
+
         if (this instanceof IHostileChampionType iHostileChampionType) {
             if (iHostileChampionType.NC$getHostileChampionType() == HostileChampion.Blessed) {
                 if (!cir.getReturnValue()

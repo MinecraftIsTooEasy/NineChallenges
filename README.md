@@ -10,24 +10,29 @@
 - BarrenLands
 - IntoDarkness
 
-- HostileChampions ("a few champion logics" haha, funny, imna kill m'self soon, ts's so bs)
-    - [FINISHED] Blazing (orange)
-        - [FINISHED] +25% melee damage
-        - [FINISHED] ignites target when attacks if not wet
-        - [FINISHED] spreads fire on death if not wet
-        - [FINISHED] immune to fire and lava damage
+- HostileChampions
+    - [DONE] Blazing (orange)
+        - [DONE] +25% melee damage
+        - [DONE] ignites target when attacks if not wet
+        - [DONE] spreads fire on death if not wet
+        - [DONE] immune to fire and lava damage
     - [DONE] Projecting (purple)
-        - [FINISHED] +25% damage
-        - [FINISHED, but there are some niche cases to think about, like creeper having x2 entity explosion yet same damage just on wider area. also animals unchecked] +100% attack reach in melee
+        - [DONE] +25% melee damage or +50% ranged damage
+        - [DONE] +50% attack reach in melee
+        - [DONE] spawns only if it has AI
     - Antimagic (green)
-        - [FINISHED] -50% damage taken
-        - [DONE, but not all enchants] immune to enchants like sharpness, fire aspect, looting, etc.
-    - Giant
-        - +100% hitbox and model, can spawn only if there's enough space
-        - [FINISHED] -80% damage
+        - [DONE] -50% damage taken
+        - [DONE] don't get damaged by magic aspect
+        - [DONE] spawns only if it can be damaged without magic aspect
+    - Giant (blue)
+        - [FINISHED] +100% hitbox and model, can spawn only if there's enough space
+        - [FINISHED, unbalanced?] -80% damage
+        - creepers explode x2-4 times more powerful
+        - animals drop x2-4 more meat
     - Blessed (yellow)
-        - [DONE] +300% regeneration speed
-        - [FINISHED] when attacked by someone requires silver or magic aspects
+        - [DONE] +300% regeneration amount
+        - [DONE] when attacked by someone requires silver or magic aspects
+        - [DONE]spawns only if it can be damaged by magic or silver aspects
     - Growing (red)
         - +20% regeneration speed
         - +20% regeneration amount

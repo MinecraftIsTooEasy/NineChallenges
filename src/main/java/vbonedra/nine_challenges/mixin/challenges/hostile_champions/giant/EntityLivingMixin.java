@@ -12,12 +12,13 @@ import vbonedra.nine_challenges.util.IHostileChampionType;
 import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
 
 @Mixin(EntityLiving.class)
-public abstract class EntityLivingMixin {
+public abstract class EntityLivingMixin implements IHostileChampionType {
 
     @Inject(method = "getReach()F", at = @At("RETURN"), cancellable = true)
     private void getReach_Giant(CallbackInfoReturnable<Float> cir) {
         if (!isChallengeEnabled(Challenge.HOSTILE_CHAMPIONS)) return;
-        if (((IHostileChampionType) this).NC$getHostileChampionType() == HostileChampion.Giant) {
+
+        if (this.NC$getHostileChampionType() == HostileChampion.Giant) {
             cir.setReturnValue(cir.getReturnValueF() * HostileChampion.championGiantReachMultiplier);
         }
     }
