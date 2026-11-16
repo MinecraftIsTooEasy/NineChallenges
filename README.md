@@ -33,11 +33,11 @@
         - [DONE] +300% regeneration amount
         - [DONE] when attacked by someone requires silver or magic aspects
         - [DONE] spawns only if it can be damaged by magic or silver aspects
-    - Growing (red)
-        - +20% regeneration speed
-        - +20% regeneration amount
-        - +20% damage
-        - +20% effective HP (max hp and hp, so 12/20 with 45% increase is 17.4/29)
+    - Growing (red) - make IGrowingChampion which would have setters and getters for regen-speed, regen-amount, damage-multiplier, effective-health-multiplier
+        - +20% up to +300% regeneration speed
+        - +20% up to +300% regeneration amount
+        - +20% up to +300% damage
+        - +20% up to +300% effective HP (max hp and hp, so 12/20 with 45% increase is 17.4/29)
         - increases by 1% every 640 ticks it exists and every 80 ticks it has target
 
 [TODO]
