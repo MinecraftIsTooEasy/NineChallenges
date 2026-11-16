@@ -70,7 +70,7 @@ public abstract class EntityLivingBaseMixin extends Entity implements IHostileCh
 
         if (this.hostileChampionType != HostileChampion.Giant && !HostileChampionTypeCache.clientHostileChampionTypeMap.containsKey(this.entityId)) return;
 
-        if (HostileChampionTypeGetter.getHostileChampionType(this.getAsEntityLivingBase()) != HostileChampion.Giant) return;
+        if (HostileChampionTypeGetter.getHostileChampionType(this) != HostileChampion.Giant) return;
 
         float naturalWidth = this.NC$getNaturalWidth();
 
@@ -87,7 +87,6 @@ public abstract class EntityLivingBaseMixin extends Entity implements IHostileCh
             this.NC$refreshGiantHitbox();
         }
     }
-
 
     @Inject(method = "writeEntityToNBT", at = @At("RETURN"))
     private void writeEntityToNBT(NBTTagCompound nbt, CallbackInfo ci) {

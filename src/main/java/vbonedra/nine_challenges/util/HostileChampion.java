@@ -40,7 +40,7 @@ public class HostileChampion {
     public static final byte Giant = initHostileChampionType(4, "entity.challenge.hostile_champions.giant.name", 0x0088ff);
     public static final float championGiantScale = 1.9F;
     public static final float championGiantReachMultiplier = 1.25F;
-    public static final float championGiantDamageResistanceMultiplier = 0.2F;
+    public static final float championGiantDamageResistanceMultiplier = 0.5F;
     public static final float championGiantExplosionMultiplier = 2.0F;
     public static final int championGiantAdditionalDropAmount = 3;
 

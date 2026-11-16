@@ -11,12 +11,12 @@
 - IntoDarkness
 
 - HostileChampions
-    - [DONE] Blazing (orange)
+    - Blazing (orange)
         - [DONE] +25% melee damage
         - [DONE] ignites target when attacks if not wet
         - [DONE] spreads fire on death if not wet
         - [DONE] immune to fire and lava damage
-    - [DONE] Projecting (purple)
+    - Projecting (purple)
         - [DONE] +25% melee damage or +50% ranged damage
         - [DONE] +50% attack reach in melee
         - [DONE] spawns only if it has AI
@@ -25,14 +25,14 @@
         - [DONE] don't get damaged by magic aspect
         - [DONE] spawns only if it can be damaged without magic aspect
     - Giant (blue)
-        - [FINISHED] +100% hitbox and model, can spawn only if there's enough space
-        - [FINISHED, unbalanced?] -80% damage
-        - [FINISHED] creepers explode x2-4 times more powerful
-        - animals drop x2-4 more meat
+        - [DONE] +100% hitbox and model, can spawn only if there's enough space
+        - [DONE] -50% damage
+        - [DONE] creeper's explosions are 2 times more powerful
+        - [DONE] giants drop as many items as 4 regular mobs
     - Blessed (yellow)
         - [DONE] +300% regeneration amount
         - [DONE] when attacked by someone requires silver or magic aspects
-        - [DONE]spawns only if it can be damaged by magic or silver aspects
+        - [DONE] spawns only if it can be damaged by magic or silver aspects
     - Growing (red)
         - +20% regeneration speed
         - +20% regeneration amount
