@@ -51,8 +51,8 @@ public abstract class EntityLivingBaseMixin extends Entity implements IHostileCh
 
                 if (!hasSpaceToSpawnGiant()) possibleHostileChampionTypes.remove(HostileChampion.Giant);
                 if (!this.isAIEnabled()) possibleHostileChampionTypes.remove(HostileChampion.Projecting);
-                if (!isImmuneTo(DamageSource.magic)) possibleHostileChampionTypes.remove(HostileChampion.Blessed);
-                if (!isImmuneTo(DamageSource.generic)) possibleHostileChampionTypes.remove(HostileChampion.Antimagic);
+                if (isImmuneTo(DamageSource.magic)) possibleHostileChampionTypes.remove(HostileChampion.Blessed);
+                if (isImmuneTo(DamageSource.generic)) possibleHostileChampionTypes.remove(HostileChampion.Antimagic);
 
                 if (!possibleHostileChampionTypes.isEmpty()) {
                     this.NC$setHostileChampionType(possibleHostileChampionTypes.toArray(new Byte[0])[this.rand.nextInt(possibleHostileChampionTypes.size())]);

@@ -41,6 +41,8 @@ public class HostileChampion {
     public static final float championGiantScale = 1.9F;
     public static final float championGiantReachMultiplier = 1.25F;
     public static final float championGiantDamageResistanceMultiplier = 0.2F;
+    public static final float championGiantExplosionMultiplier = 2.0F;
+    public static final int championGiantAdditionalDropAmount = 3;
 
     public static final byte Blessed = initHostileChampionType(5, "entity.challenge.hostile_champions.blessed.name", 0xffff00);
     public static final float championBlessedRegenerationMultiplier = 4F;

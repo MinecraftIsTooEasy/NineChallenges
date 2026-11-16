@@ -27,7 +27,7 @@
     - Giant (blue)
         - [FINISHED] +100% hitbox and model, can spawn only if there's enough space
         - [FINISHED, unbalanced?] -80% damage
-        - creepers explode x2-4 times more powerful
+        - [FINISHED] creepers explode x2-4 times more powerful
         - animals drop x2-4 more meat
     - Blessed (yellow)
         - [DONE] +300% regeneration amount
