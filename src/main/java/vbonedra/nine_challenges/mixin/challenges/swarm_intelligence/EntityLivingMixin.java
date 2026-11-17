@@ -74,7 +74,7 @@ public abstract class EntityLivingMixin extends EntityLivingBase implements ISwa
                 if (entityToShare == entityLiving || entityToShare.isDead) continue;
 
                 if (entityToShare instanceof ISwarmIntelligence iSwarmIntelligence) {
-                    if (iSwarmIntelligence.NC$hasSwarmTarget()) {
+                    if (iSwarmIntelligence.NC$hasSwarmTarget() && this.canSeeEntity(entityToShare)) {
                         iSwarmIntelligence.NC$setSwarmTarget(player.posX, player.posY, player.posZ);
                     }
 
