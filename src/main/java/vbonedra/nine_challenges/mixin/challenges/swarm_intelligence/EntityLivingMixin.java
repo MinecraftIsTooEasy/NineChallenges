@@ -1,21 +1,19 @@
 package vbonedra.nine_challenges.mixin.challenges.swarm_intelligence;
 
 import net.minecraft.*;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import vbonedra.nine_challenges.challenge.Challenge;
-import vbonedra.nine_challenges.util.EntityAISwarmMove;
 import vbonedra.nine_challenges.util.ISwarmIntelligence;
 
 import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
 
 @Mixin(EntityLiving.class)
 public abstract class EntityLivingMixin extends EntityLivingBase implements ISwarmIntelligence {
+
 
     @Unique private boolean lastTargetIsPlayer = false;
     @Unique private double swarmX;
@@ -50,17 +48,6 @@ public abstract class EntityLivingMixin extends EntityLivingBase implements ISwa
     }
     @Override public void NC$clearSwarmTarget() {
         this.swarmSetTime = -1L;
-    }
-
-    @Shadow @Final protected EntityAITasks tasks;
-
-    @Inject(method = "<init>", at = @At("RETURN"))
-    private void init_addSwarmTask(World world, CallbackInfo ci) {
-        if (!isChallengeEnabled(Challenge.SWARM_INTELLIGENCE)) return;
-
-        if (this.tasks != null) {
-            this.tasks.addTask(4, new EntityAISwarmMove((EntityLiving) (Object) this, 1.0D));
-        }
     }
 
     @Inject(method = "onLivingUpdate", at = @At("RETURN"))

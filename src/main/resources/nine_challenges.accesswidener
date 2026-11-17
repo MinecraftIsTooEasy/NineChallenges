@@ -9,3 +9,4 @@ accessible method net/minecraft/Damage getResponsibleEntity ()Lnet/minecraft/Ent
 accessible method net/minecraft/EntityLiving isAIEnabled ()Z
 accessible method net/minecraft/Entity setSize (FF)V
 accessible method net/minecraft/EntityCubic setSize (I)V
+accessible class net/minecraft/EntityAITaskEntry
