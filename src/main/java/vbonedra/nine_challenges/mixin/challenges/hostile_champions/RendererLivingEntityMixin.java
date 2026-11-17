@@ -8,12 +8,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import vbonedra.nine_challenges.challenge.Challenge;
-import vbonedra.nine_challenges.util.HostileChampion;
-import vbonedra.nine_challenges.util.HostileChampionTypeGetter;
+import vbonedra.nine_challenges.util.hostile_champion.HostileChampion;
+import vbonedra.nine_challenges.util.hostile_champion.HostileChampionTypeGetter;
 
 import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
-import static vbonedra.nine_challenges.util.HostileChampion.colorMap;
-import static vbonedra.nine_challenges.util.RenderChampionOverlayHelper.*;
+import static vbonedra.nine_challenges.manylib.NineChallengesConfigs.*;
+import static vbonedra.nine_challenges.util.hostile_champion.HostileChampion.colorMap;
+import static vbonedra.nine_challenges.util.hostile_champion.RenderChampionOverlayHelper.*;
 
 @Mixin(RendererLivingEntity.class)
 public abstract class RendererLivingEntityMixin {
@@ -45,9 +46,9 @@ public abstract class RendererLivingEntityMixin {
         if (colorObj == null) return;
         int color = colorObj;
 
-        float r = ((color >> 16) & 255) / 255.0F * overlayBrightness;
-        float g = ((color >> 8) & 255) / 255.0F * overlayBrightness;
-        float b = (color & 255) / 255.0F * overlayBrightness;
+        float r = ((color >> 16) & 255) / 255.0F * (float) ValueChallengeHostileChampionsOverlayBrightness.getDoubleValue();
+        float g = ((color >> 8) & 255) / 255.0F * (float) ValueChallengeHostileChampionsOverlayBrightness.getDoubleValue();
+        float b = (color & 255) / 255.0F * (float) ValueChallengeHostileChampionsOverlayBrightness.getDoubleValue();
 
         float centerY = (float)((entity.boundingBox.maxY - entity.boundingBox.minY) * 0.5);
 
@@ -69,7 +70,7 @@ public abstract class RendererLivingEntityMixin {
 
             GL11.glMatrixMode(GL11.GL_TEXTURE);
             GL11.glLoadIdentity();
-            float speed = entity.ticksExisted * overlaySpeed;
+            float speed = entity.ticksExisted * (float) ValueChallengeHostileChampionsOverlaySpeed.getDoubleValue();
             GL11.glTranslatef(speed, speed, speed);
             GL11.glMatrixMode(GL11.GL_MODELVIEW);
 
@@ -88,7 +89,11 @@ public abstract class RendererLivingEntityMixin {
             GL11.glColor4f(r, g, b, 1.0F);
 
             GL11.glTranslatef(0.0F, centerY, 0.0F);
-            GL11.glScalef(overlayScale, overlayScale, overlayScale);
+            GL11.glScalef(
+                    (float) ValueChallengeHostileChampionsOverlayScale.getDoubleValue(),
+                    (float) ValueChallengeHostileChampionsOverlayScale.getDoubleValue(),
+                    (float) ValueChallengeHostileChampionsOverlayScale.getDoubleValue()
+            );
             GL11.glTranslatef(0.0F, -centerY, 0.0F);
 
             this.mainModel.render(entity, limbSwing, limbSwingAmount, ageInTicks, headYaw, headPitch, scale);

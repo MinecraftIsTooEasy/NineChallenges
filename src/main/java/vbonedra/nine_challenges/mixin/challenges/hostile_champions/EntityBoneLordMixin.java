@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import com.llamalad7.mixinextras.sugar.Local;
-import vbonedra.nine_challenges.util.IHostileChampionType;
+import vbonedra.nine_challenges.util.hostile_champion.IHostileChampionType;
 
 @Mixin(EntityBoneLord.class)
 public abstract class EntityBoneLordMixin implements IHostileChampionType{

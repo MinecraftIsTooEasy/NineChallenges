@@ -9,10 +9,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vbonedra.nine_challenges.challenge.Challenge;
-import vbonedra.nine_challenges.util.*;
+import vbonedra.nine_challenges.util.hostile_champion.HostileChampion;
+import vbonedra.nine_challenges.util.hostile_champion.IGrowingChampion;
+import vbonedra.nine_challenges.util.hostile_champion.IHostileChampionType;
 
 import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
-import static vbonedra.nine_challenges.util.HostileChampion.*;
+import static vbonedra.nine_challenges.util.hostile_champion.HostileChampion.*;
 
 @Mixin(EntityLivingBase.class)
 public abstract class EntityLivingBaseMixin extends Entity implements IHostileChampionType, IGrowingChampion {

@@ -1,5 +1,5 @@
 package vbonedra.nine_challenges.util;
 
-public class GuiIngameHelper {
+public class OnDietGuiIngameHelper {
     public static boolean isRendering = false;
 }

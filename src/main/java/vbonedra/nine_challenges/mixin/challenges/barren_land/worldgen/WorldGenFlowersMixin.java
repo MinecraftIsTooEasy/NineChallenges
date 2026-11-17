@@ -1,4 +1,4 @@
-package vbonedra.nine_challenges.mixin.challenges.barren_land.worldgen.trees;
+package vbonedra.nine_challenges.mixin.challenges.barren_land.worldgen;
 
 import net.minecraft.Block;
 import net.minecraft.World;
@@ -30,7 +30,7 @@ public class WorldGenFlowersMixin {
     @Redirect(method = "generate", at = @At(value = "INVOKE", target = "Lnet/minecraft/Block;canOccurAt(Lnet/minecraft/World;IIII)Z"))
     private boolean generate_RedirectCanOccurAt(Block instance, World world, int x, int y, int z, int metadata) {
         if (Challenges.isChallengeEnabled(Challenge.BARREN_LAND)) {
-            this.shouldConvert = this.internalRand != null && this.internalRand.nextFloat() < 0.75F;
+            this.shouldConvert = this.internalRand != null && this.internalRand.nextFloat() <= world.getBiomeGenForCoords(x, z).getFloatRainfall();
             if (this.shouldConvert) {
                 return Block.tallGrass.canOccurAt(world, x, y, z, 0);
             }

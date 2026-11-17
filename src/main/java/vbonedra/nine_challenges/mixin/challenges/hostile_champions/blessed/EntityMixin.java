@@ -2,18 +2,11 @@ package vbonedra.nine_challenges.mixin.challenges.hostile_champions.blessed;
 
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.*;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vbonedra.nine_challenges.challenge.Challenge;
-import vbonedra.nine_challenges.util.HostileChampion;
-import vbonedra.nine_challenges.util.IHostileChampionType;
-
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import vbonedra.nine_challenges.util.hostile_champion.HostileChampion;
+import vbonedra.nine_challenges.util.hostile_champion.IHostileChampionType;
 
 import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
 

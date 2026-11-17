@@ -1,11 +1,12 @@
 package vbonedra.nine_challenges;
 
-import vbonedra.nine_challenges.event.ExampleEvent;
+import fi.dy.masa.malilib.config.ConfigManager;
 import net.fabricmc.api.ModInitializer;
 
 import net.xiaoyu233.fml.ModResourceManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import vbonedra.nine_challenges.manylib.NineChallengesConfigs;
 import vbonedra.nine_challenges.network.NineChallengesNetwork;
 
 public class NineChallengesMod implements ModInitializer {
@@ -15,13 +16,12 @@ public class NineChallengesMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
-        NINE_CHALLENGES_LOGGER.info("Hello MITE Dev world!");
-
         ModResourceManager.addResourcePackDomain(NINE_CHALLENGES_MOD_ID);
 
         NineChallengesNetwork.init();
 
-        ExampleEvent.register();
+        NineChallengesConfigs.getInstance().load();
+        ConfigManager.getInstance().registerConfig(NineChallengesConfigs.getInstance());
+
     }
 }

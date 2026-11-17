@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import vbonedra.nine_challenges.util.HostileChampionTypeCache;
+import vbonedra.nine_challenges.util.hostile_champion.HostileChampionTypeCache;
 
 @Mixin(Minecraft.class)
 public class MinecraftMixin {

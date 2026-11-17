@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import vbonedra.nine_challenges.challenge.Challenge;
-import vbonedra.nine_challenges.util.*;
+import vbonedra.nine_challenges.util.hostile_champion.*;
 
 import java.util.Set;
 

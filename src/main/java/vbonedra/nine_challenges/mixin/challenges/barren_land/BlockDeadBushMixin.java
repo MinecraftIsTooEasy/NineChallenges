@@ -1,4 +1,4 @@
-package vbonedra.nine_challenges.mixin.challenges.barren_land.worldgen.trees;
+package vbonedra.nine_challenges.mixin.challenges.barren_land;
 
 import net.minecraft.Block;
 import net.minecraft.BlockDeadBush;

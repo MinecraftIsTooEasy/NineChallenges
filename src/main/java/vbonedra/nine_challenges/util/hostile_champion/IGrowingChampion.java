@@ -1,4 +1,4 @@
-package vbonedra.nine_challenges.util;
+package vbonedra.nine_challenges.util.hostile_champion;
 
 public interface IGrowingChampion {
     int NC$getGrowTicks();

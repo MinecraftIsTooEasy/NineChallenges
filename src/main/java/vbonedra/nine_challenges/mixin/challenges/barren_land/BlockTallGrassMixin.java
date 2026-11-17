@@ -22,11 +22,9 @@ public abstract class BlockTallGrassMixin {
 
             ItemStack stack = info.getHarvesterItemStack();
             Item item = stack == null ? null : stack.getItem();
-            Block self = (Block) (Object) this;
+            Block block = (Block) (Object) this;
 
-            boolean effective = item instanceof ItemTool itemTool && itemTool.isEffectiveAgainstBlock(self, info.getMetadata());
-
-            if (!effective) {
+            if (!(item instanceof ItemTool itemTool && itemTool.isEffectiveAgainstBlock(block, info.getMetadata()))) {
                 cir.setReturnValue(0);
             }
         }

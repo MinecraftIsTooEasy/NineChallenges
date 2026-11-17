@@ -3,7 +3,7 @@ package vbonedra.nine_challenges.network;
 import net.minecraft.*;
 import moddedmite.rustedironcore.network.Packet;
 import moddedmite.rustedironcore.network.PacketByteBuf;
-import vbonedra.nine_challenges.util.HostileChampionTypeCache;
+import vbonedra.nine_challenges.util.hostile_champion.HostileChampionTypeCache;
 
 public class S2CSendHostileChampionType implements Packet {
     private final int entityId;

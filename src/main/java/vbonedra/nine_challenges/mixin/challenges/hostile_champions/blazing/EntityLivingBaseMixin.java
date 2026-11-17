@@ -2,17 +2,14 @@ package vbonedra.nine_challenges.mixin.challenges.hostile_champions.blazing;
 
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.*;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vbonedra.nine_challenges.challenge.Challenge;
-import vbonedra.nine_challenges.util.HostileChampion;
-import vbonedra.nine_challenges.util.IHostileChampionType;
+import vbonedra.nine_challenges.util.hostile_champion.HostileChampion;
+import vbonedra.nine_challenges.util.hostile_champion.IHostileChampionType;
 
-import static vbonedra.nine_challenges.NineChallengesMod.NINE_CHALLENGES_LOGGER;
 import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
-import static vbonedra.nine_challenges.util.HostileChampion.championBlazingFireAspectSeconds;
+import static vbonedra.nine_challenges.util.hostile_champion.HostileChampion.championBlazingFireAspectSeconds;
 
 @Mixin(EntityLivingBase.class)
 public abstract class EntityLivingBaseMixin extends Entity implements IHostileChampionType {

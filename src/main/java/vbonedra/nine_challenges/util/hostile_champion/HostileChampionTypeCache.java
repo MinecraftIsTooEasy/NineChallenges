@@ -1,6 +1,7 @@
-package vbonedra.nine_challenges.util;
+package vbonedra.nine_challenges.util.hostile_champion;
 
 import net.minecraft.Minecraft;
+
 import java.util.HashMap;
 import java.util.Map;
 

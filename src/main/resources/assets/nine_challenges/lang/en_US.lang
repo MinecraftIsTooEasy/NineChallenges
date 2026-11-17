@@ -42,7 +42,7 @@ challenge.pharmacophobia.description.detailed=Potions and consumables which gave
 
 challenge.barren_land.title=Barren Land
 challenge.barren_land.description.short="There seems to be no healthy plants left in this accursed world..."
-challenge.barren_land.description.detailed=The world looks sick.\nTree crowns are thin and small.\nLeaves drop fruits only when mined with effective tool.\nSaplings die.\n75% of flowers replaced by dead bushes.\nPumpkins barely spawn.\nCacti barely spawn.\nCrops grow only on fertilized farmland, and every growth consumes manure.\nGrass drops seed with 10% chance when mined by effective tool.
+challenge.barren_land.description.detailed=The world looks sick.\nTree crowns are thin and small.\nLeaves drop fruits only when mined with effective tool.\nSaplings die.\nAlmost no flowers generate.\nPumpkins barely spawn.\nCacti barely spawn.\nCrops grow only on fertilized farmland, and every growth consumes manure.\nGrass drops seed with 10% chance when mined by effective tool.
 
 challenge.swarm_intelligence.title=Swarm Intelligence
 challenge.swarm_intelligence.description.short="Watch your back, they are going to follow you."
