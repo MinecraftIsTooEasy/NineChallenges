@@ -11,7 +11,7 @@ import java.util.List;
 public class NineChallengesConfigs extends SimpleConfigs {
     public static final ConfigBoolean EnableChallengeBarrenLandsDeadTint = new ConfigBoolean("Barren Lands Dead Tint", true, "Makes foliage look darker and desaturated. Reload render after change, by defaults \"R\" key.");
 
-    public static final ConfigDouble ValueChallengeHostileChampionsOverlayScale = new ConfigDouble("Champion Overlay Scale", 1.0F, 0F, 2F, "How far champion overlay would go from entity model. ");
+    public static final ConfigDouble ValueChallengeHostileChampionsOverlayScale = new ConfigDouble("Champion Overlay Scale", 1.0F, 1F, 2F, "How far champion overlay would go from entity model. ");
     public static final ConfigDouble ValueChallengeHostileChampionsOverlaySpeed = new ConfigDouble("Champion Overlay Speed", 0.0044F, 0F, 2F, "How fast champion overlay would spin.");
     public static final ConfigDouble ValueChallengeHostileChampionsOverlayBrightness = new ConfigDouble("Champion Overlay Brightness", 0.5F, 0F, 1F, "How bright champion overlay would be.");
 
