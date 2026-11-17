@@ -16,11 +16,6 @@ public class NineChallengesConfigs extends SimpleConfigs {
     public static final ConfigDouble ValueChallengeHostileChampionsOverlayBrightness = new ConfigDouble("Champion Overlay Brightness", 0.5F, 0F, 1F, "How bright champion overlay would be.");
 
 
-
-
-
-
-
     private static final NineChallengesConfigs Instance;
     public static final List<ConfigBase<?>> CosmeticOptions;
     public static final List<ConfigBase<?>> BlocksListOptions = new ArrayList<>();
