@@ -58,22 +58,4 @@ public class DescriptionPainter {
         this.y += font.FONT_HEIGHT + 1;
     }
 
-    // TODO: must render icon even without adding new line, so its possible to render text and icons in same line
-    // TODO: would i ever use it? it might be useful for HostileChampions, though just text coloring would be fine, ig.
-    public void icon(ResourceLocation tex, int size) {
-        GuiUtil.draw(tex, x, y, size, size);
-        y += size + 2;
-    }
-
-    public void gapXY(int X, int Y) {
-        x += X;
-        y += Y;
-    }
-    public void gapY(int pixels) {
-        gapXY(0, pixels);
-    }
-    public void gapX(int pixels) {
-        gapXY(pixels, 0);
-    }
-
 }

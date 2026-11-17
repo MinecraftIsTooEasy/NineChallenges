@@ -14,7 +14,6 @@ import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
 @Mixin(EntityLiving.class)
 public abstract class EntityLivingMixin extends EntityLivingBase implements ISwarmIntelligence {
 
-
     @Unique private boolean lastTargetIsPlayer = false;
     @Unique private double swarmX;
     @Unique private double swarmY;
