@@ -13,11 +13,6 @@ gui.enchanting.gibberish.7=I don't get it.
 gui.enchanting.gibberish.8=Not Easy.
 gui.enchanting.gibberish.9=Ooh fancy.
 
-# TODO: there must be langKeys that would be added in desc to paste values, for exmaple:
-pasteme.speed={speed123}
-test.desc=Bla bla bla has speed of {speed123}
-# when using text.desc as description it would look into it and replace translated pasteme.speed which is {speed123} with value from config or constant from code
-# that would allow dynamic description writing, since it wont be boudn to order of values
 
 # challenges
 challenge.badder_bosses.title=Badder Bosses
