@@ -24,7 +24,7 @@ public abstract class EntityAITasksMixin {
 
         if (par2EntityAIBase instanceof EntityAIWander) {
             if (SwarmIntelligenceHelper.entityCreatureFromWander != null) {
-                this.addTask(par1, new EntityAISwarmMove(SwarmIntelligenceHelper.entityCreatureFromWander, 1.0D));
+                this.addTask(par1 - 1, new EntityAISwarmMove(SwarmIntelligenceHelper.entityCreatureFromWander, 1.0D));
             }
 
         }
