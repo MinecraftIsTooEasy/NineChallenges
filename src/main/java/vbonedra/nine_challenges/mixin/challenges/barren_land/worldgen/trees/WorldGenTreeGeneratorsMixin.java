@@ -11,7 +11,7 @@ import vbonedra.nine_challenges.util.TreeTrunk;
 
 import java.util.Random;
 
-@Mixin({WorldGenTrees.class, WorldGenForest.class, WorldGenSwamp.class})
+@Mixin({WorldGenTrees.class, WorldGenForest.class, WorldGenSwamp.class, WorldGenTaiga1.class, WorldGenTaiga2.class})
 public abstract class WorldGenTreeGeneratorsMixin {
 
     @Inject(method = "generate", at = @At("HEAD"))

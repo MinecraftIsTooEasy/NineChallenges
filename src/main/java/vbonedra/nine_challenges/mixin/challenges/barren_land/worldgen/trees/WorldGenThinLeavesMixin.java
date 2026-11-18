@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@Mixin({WorldGenTrees.class, WorldGenForest.class, WorldGenSwamp.class})
+@Mixin({WorldGenTrees.class, WorldGenForest.class, WorldGenSwamp.class, WorldGenTaiga1.class, WorldGenTaiga2.class})
 public abstract class WorldGenThinLeavesMixin {
 
     @Unique private static final float CHANCE = 0.5F;

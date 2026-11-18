@@ -25,6 +25,7 @@
     "challenges.barren_land.worldgen.trees.BlockSaplingMixin",
     "challenges.barren_land.worldgen.trees.WorldGenBigTreeMixin",
     "challenges.barren_land.worldgen.trees.WorldGeneratorMixin",
+    "challenges.barren_land.worldgen.trees.WorldGenHugeTreesMixin",
     "challenges.barren_land.worldgen.trees.WorldGenThinLeavesMixin",
     "challenges.barren_land.worldgen.trees.WorldGenTreeGeneratorsMixin",
     "challenges.faith_is_my_armor.EntityLivingBaseMixin",
