@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import vbonedra.nine_challenges.challenge.Challenge;
 import vbonedra.nine_challenges.challenge.Challenges;
 
-// TODO-META: make a separate mod with very same render
+// TODO: would conflict with RemoteDarkness, either don't load this mixin or make changes require not RemoteDarkness enabled
 // TODO: its better to rewrite without using @ModifyConstant, since it cant be compatible with other mods that change this render
 @Mixin(EntityRenderer.class)
 public abstract class EntityRendererMixin {
@@ -60,11 +60,6 @@ public abstract class EntityRendererMixin {
     })
     private float updateLightmap_DoNotShrink(float original) {
         return Challenges.isChallengeEnabled(Challenge.INTO_DARKNESS) ? 1.0F : original;
-    }
-
-    @Redirect(method = "updateLightmap", at = @At(value = "FIELD", target = "Lnet/minecraft/GameSettings;gammaSetting:F"))
-    private float updateLightmap_NoGamma(GameSettings settings) {
-        return Challenges.isChallengeEnabled(Challenge.INTO_DARKNESS) ? 0.0F : settings.gammaSetting;
     }
 
     @Redirect(method = "updateLightmap", at = @At(value = "INVOKE", target = "Lnet/minecraft/WorldClient;getMoonBrightness(FZ)F"))
