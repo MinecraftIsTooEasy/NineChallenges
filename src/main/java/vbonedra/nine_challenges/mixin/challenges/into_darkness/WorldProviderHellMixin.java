@@ -13,7 +13,23 @@ public class WorldProviderHellMixin {
 
     @Inject(method = "generateLightBrightnessTable", at = @At("RETURN"))
     protected void generateLightBrightnessTable_Darkness(CallbackInfo ci) {
-        if (Challenges.isChallengeEnabled(Challenge.INTO_DARKNESS)) ((WorldProviderHell) (Object) this).lightBrightnessTable[0] = 0;
+        if (Challenges.isChallengeEnabled(Challenge.INTO_DARKNESS)) {
+            WorldProviderHell self = (WorldProviderHell) (Object) this;
+
+            float var1 = 0.0F;
+            for(int var2 = 0; var2 <= 15; ++var2) {
+                float var3 = 1.0F - (float)var2 / 15.0F;
+                self.lightBrightnessTable[var2] = (1.0F - var3) / (var3 * 3.0F + 1.0F) * (1.0F - var1) + var1;
+                if (var2 > 0 && var2 < 15) {
+                    float extra_drop_off = 0.001F * (float)(15 - var2);
+                    if (extra_drop_off > 0.0F) {
+                        float[] var10000 = self.lightBrightnessTable;
+                        var10000[var2] -= extra_drop_off;
+                    }
+                }
+            }
+
+        }
     }
 
 }
