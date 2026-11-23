@@ -46,7 +46,6 @@ public abstract class ItemMixin {
         return (int) ((float) this.nutrition * 8000F / 3F);
     }
 
-    // it's better to modify diet stats like this; on_diet is already harsh enough, no need to lower stats even more... maybe
     @SuppressWarnings("ConstantConditions")
     @ModifyReturnValue(method = "getProtein()I", at = @At("RETURN"))
     private int getProtein(int original) {
