@@ -68,7 +68,7 @@ Adds 9 challenges inspired by Shattered Pixel Dungeon Challenges.
 
 ## Into Darkness
 `You can barely see past your nose.`
-- True darkness
+- True darkness just like in RemoteDarkness mod
 - New moon's light is too dark to see anything
 - Hell is in darkness
 - In darkness hostiles spawn 12 times closer to player instead of 3 times closer
@@ -82,4 +82,4 @@ Adds 9 challenges inspired by Shattered Pixel Dungeon Challenges.
 
 ---
 
-This mod isn't meant to be combined with other content-mods like iTFR, iTE, Renewed or MoreFood, since its balanced only and only for vanilla MiTE. Though you can try, no one would ever care.
+This mod isn't meant to be combined with other content-mods like iTFR, iTE, Renewed, MoreFood, etc.; its balanced only and only for vanilla MiTE. Though you can try, no one would ever care.

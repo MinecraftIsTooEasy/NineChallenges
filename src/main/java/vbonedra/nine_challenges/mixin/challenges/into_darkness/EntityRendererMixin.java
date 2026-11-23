@@ -1,7 +1,6 @@
 package vbonedra.nine_challenges.mixin.challenges.into_darkness;
 
 import net.minecraft.*;
-import net.xiaoyu233.fml.FishModLoader;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

@@ -61,7 +61,6 @@
     "challenges.into_darkness.EntityLivingBaseMixin",
     "challenges.into_darkness.EntityRendererMixin",
     "challenges.into_darkness.SpawnerAnimalsMixin",
-    "challenges.into_darkness.WorldProviderHellMixin",
     "challenges.on_diet.FoodStatsMixin",
     "challenges.on_diet.GuiIngameMixin",
     "challenges.on_diet.ItemMixin",

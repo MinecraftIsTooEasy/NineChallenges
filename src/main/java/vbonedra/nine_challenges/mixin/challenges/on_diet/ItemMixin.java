@@ -4,7 +4,6 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.Item;
-import net.minecraft.ItemFood;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -17,16 +16,17 @@ import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
 public abstract class ItemMixin {
 
     @Shadow private int nutrition;
+    @Shadow private int satiation;
 
     // nutrition is just thirded
     @ModifyReturnValue(method = "getNutrition()I", at = @At("RETURN"))
-    private int getNutrition_OnDiet(int original) {
+    private int getNutrition(int original) {
         return isChallengeEnabled(Challenge.ON_DIET) ? original / 3 : original;
     }
 
     // satiation is halved and increased by 1 if nutrition leaves remainder
     @ModifyReturnValue(method = "getSatiation", at = @At("RETURN"))
-    private int getSatiation_OnDiet(int original) {
+    private int getSatiation(int original) {
         if (!isChallengeEnabled(Challenge.ON_DIET)) {
             return original;
         }
@@ -46,33 +46,30 @@ public abstract class ItemMixin {
         return (int) ((float) this.nutrition * 8000F / 3F);
     }
 
-    // it's better to modify diet stats like this; on_diet is already harsh enough, no need to lower stats even more.. maybe
+    // it's better to modify diet stats like this; on_diet is already harsh enough, no need to lower stats even more... maybe
     @SuppressWarnings("ConstantConditions")
     @ModifyReturnValue(method = "getProtein()I", at = @At("RETURN"))
-    private int getProtein_OnDiet(int original) {
+    private int getProtein(int original) {
         if (isChallengeEnabled(Challenge.ON_DIET)
-                && (Object) this instanceof ItemFood food
-                && food.hasProtein()) {
+                && ((Item) (Object) this).hasProtein()) {
             return calculateDietStat();
         }
         return original;
     }
     @SuppressWarnings("ConstantConditions")
     @ModifyReturnValue(method = "getEssentialFats()I", at = @At("RETURN"))
-    private int getEssentialFats_OnDiet(int original) {
+    private int getEssentialFats(int original) {
         if (isChallengeEnabled(Challenge.ON_DIET)
-                && (Object) this instanceof ItemFood food
-                && food.hasEssentialFats()) {
+                && ((Item) (Object) this).hasEssentialFats()) {
             return calculateDietStat();
         }
         return original;
     }
     @SuppressWarnings("ConstantConditions")
     @ModifyReturnValue(method = "getPhytonutrients()I", at = @At("RETURN"))
-    private int getPhytonutrients_OnDiet(int original) {
+    private int getPhytonutrients(int original) {
         if (isChallengeEnabled(Challenge.ON_DIET)
-                && (Object) this instanceof ItemFood food
-                && food.hasPhytonutrients()) {
+                && ((Item) (Object) this).hasPhytonutrients()) {
             return calculateDietStat();
         }
         return original;
@@ -80,7 +77,7 @@ public abstract class ItemMixin {
 
     // make satiation check modified value
     @ModifyExpressionValue(method = "addInformation", at = @At(value = "FIELD", target = "Lnet/minecraft/Item;satiation:I"))
-    private int addInformation_OnDietShowSatiation(int original, @Local(ordinal = 0) int satiation) {
+    private int addInformation_ShowSatiation(int original, @Local(ordinal = 0) int satiation) {
         return isChallengeEnabled(Challenge.ON_DIET) ? satiation : original;
     }
 }

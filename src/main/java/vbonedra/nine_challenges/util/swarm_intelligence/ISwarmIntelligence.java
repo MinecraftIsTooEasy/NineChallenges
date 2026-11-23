@@ -1,4 +1,4 @@
-package vbonedra.nine_challenges.util;
+package vbonedra.nine_challenges.util.swarm_intelligence;
 
 public interface ISwarmIntelligence {
     boolean NC$hasSwarmTarget();

@@ -7,8 +7,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import vbonedra.nine_challenges.challenge.Challenge;
-import vbonedra.nine_challenges.util.EntityAISwarmMove;
-import vbonedra.nine_challenges.util.SwarmIntelligenceHelper;
+import vbonedra.nine_challenges.util.swarm_intelligence.EntityAISwarmMove;
+import vbonedra.nine_challenges.util.swarm_intelligence.SwarmIntelligenceHelper;
 
 import static vbonedra.nine_challenges.challenge.Challenges.isChallengeEnabled;
 
