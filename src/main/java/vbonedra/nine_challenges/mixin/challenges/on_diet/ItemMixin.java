@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.Item;
+import net.minecraft.ItemBowl;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -21,7 +22,7 @@ public abstract class ItemMixin {
     // nutrition is just thirded
     @ModifyReturnValue(method = "getNutrition()I", at = @At("RETURN"))
     private int getNutrition(int original) {
-        return isChallengeEnabled(Challenge.ON_DIET) ? original / 3 : original;
+        return isChallengeEnabled(Challenge.ON_DIET) ? original / getNutritionFactor() : original;
     }
 
     // satiation is halved and increased by 1 if nutrition leaves remainder
@@ -37,13 +38,17 @@ public abstract class ItemMixin {
         return result;
     }
 
+    @Unique private int getNutritionFactor() {
+        return ((Object) this) instanceof ItemBowl ? 2 : 3;
+    }
+
     // if remainder in nutrition != 0, satiation gets increased by 1
     @Unique private boolean isNutritionRemainder() {
-        return this.nutrition > 0 && this.nutrition % 3 != 0;
+        return this.nutrition > 0 && this.nutrition % getNutritionFactor() != 0;
     }
 
     @Unique private int calculateDietStat() {
-        return (int) ((float) this.nutrition * 8000F / 3F);
+        return (int) ((float) this.nutrition * 8000F / getNutritionFactor());
     }
 
     @SuppressWarnings("ConstantConditions")

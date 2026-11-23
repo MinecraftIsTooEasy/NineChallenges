@@ -30,7 +30,7 @@ entity.challenge.hostile_champions.growing.name=Growing
 
 challenge.on_diet.title=On Diet
 challenge.on_diet.description.short="Food's already scarce, but you have to watch your portions as well!"
-challenge.on_diet.description.detailed=Nutrition is thirded.\nSatiation is halved, but never disappears.\nProteins and Phytonutrients are thirded.\nIf Nutrition leaves remainder after thirding, Satiation increases by 1.\nMinimal nutrition is 5 half-shanks instead of 6.\nEvery 5 levels minimal nutrition increases by half a shank.
+challenge.on_diet.description.detailed=Nutrition is thirded.\nSatiation is halved, but never disappears.\nProteins and Phytonutrients are thirded.\nIf Nutrition leaves remainder after thirding, Satiation increases by 1.\nMinimal nutrition is 5 half-shanks instead of 6.\nEvery 5 levels minimal nutrition increases by half a shank.\nNutrition from bowl foods is halved instead of thirded.
 
 challenge.faith_is_my_armor.title=Faith is My Armor
 challenge.faith_is_my_armor.description.short="Take on the world with nothing but some leather to protect you."
