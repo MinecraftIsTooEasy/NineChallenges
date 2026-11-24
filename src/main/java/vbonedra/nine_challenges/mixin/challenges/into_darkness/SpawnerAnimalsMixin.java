@@ -1,6 +1,7 @@
 package vbonedra.nine_challenges.mixin.challenges.into_darkness;
 
 import net.minecraft.EntityPlayer;
+import net.minecraft.MathHelper;
 import net.minecraft.SpawnerAnimals;
 import net.minecraft.WorldServer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,7 +18,16 @@ public abstract class SpawnerAnimalsMixin {
         if (Challenges.isChallengeEnabled(Challenge.INTO_DARKNESS) && distance == 8.0D && !mustBeAlive) {
             distance = 2.0D;
         }
-        return world.getClosestPlayer(x, y, z, distance, mustBeAlive);
+
+        EntityPlayer closestPlayer = world.getClosestPlayer(x, y, z, distance, mustBeAlive);
+
+        if (world.getBlockLightValue(
+                MathHelper.floor_double(closestPlayer.posX),
+                MathHelper.floor_double(closestPlayer.posY),
+                MathHelper.floor_double(closestPlayer.posZ)
+        ) != 0) closestPlayer = null;
+
+        return closestPlayer;
     }
 
 }
