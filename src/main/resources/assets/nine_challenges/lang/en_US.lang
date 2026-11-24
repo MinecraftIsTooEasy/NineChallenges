@@ -20,7 +20,7 @@ challenge.badder_bosses.description.detailed=§5Ender Dragon§r:\n+50% max healt
 
 challenge.hostile_champions.title=Hostile Champions
 challenge.hostile_champions.description.short="You aren't the only who can level up."
-challenge.hostile_champions.description.detailed=Hostile champions spawn across the whole world.\nOne in ten creatures acquire one of six special champion types:\n§6Blazing§r - +25% damage, attacks set victim on fire for 4 seconds, explodes in flames on death\n§5Projecting§r - +25% damage, +50% reach\n§aAntimagic§r - takes 35% less damage, can't be harmed if weapon involves magic\n§bGiant§r - twice the size, +25% reach, takes 50% less damage, drops extra loot\n§eBlessed§r - regenerates four times faster, can't be harmed without magic or silver aspects\n§cGrowing§r - grows stronger the longer it fights, starting with +20% damage and effective health up to +300%
+challenge.hostile_champions.description.detailed=Hostile champions spawn across the whole world.\nOne in ten creatures acquire one of six special champion types:\n§6Blazing§r - +25% damage, attacks set victim on fire for 4 seconds, explodes in flames on death\n§5Projecting§r - +25% damage, +50% reach\n§aAntimagic§r - +50% health, can't be harmed if weapon involves magic\n§bGiant§r - twice the size, +25% reach, +400% health, drops 4 times more loot\n§eBlessed§r - regenerates four times faster, can't be harmed without magic or silver aspects\n§cGrowing§r - grows stronger the longer it fights, starting with +20% damage and effective health up to +300%
 entity.challenge.hostile_champions.blazing.name=Blazing
 entity.challenge.hostile_champions.projecting.name=Projecting
 entity.challenge.hostile_champions.antimagic.name=Antimagic
@@ -42,7 +42,7 @@ challenge.pharmacophobia.description.detailed=Potions and consumables which gave
 
 challenge.barren_land.title=Barren Land
 challenge.barren_land.description.short="There seems to be no healthy plants left in this accursed world..."
-challenge.barren_land.description.detailed=The world looks sick.\nTrees can't keep large amount of leaves.\nLeaves drop fruits only when mined with effective tool.\nSaplings die.\nNo flowers spawn.\nPumpkins barely spawn.\nCacti barely spawn.\nCrops grow only on fertilized farmland, and every growth consumes manure.\nGrass drops seed with 10% chance when mined by effective tool.\nLakes and Underworld are drier.
+challenge.barren_land.description.detailed=The world looks sick.\nTrees can't keep large amount of leaves, bigger ones don't even have any!\nLeaves drop fruits only when mined with effective tool.\nSaplings die.\nNo flowers spawn.\nPumpkins barely spawn.\nCacti barely spawn.\nCrops grow only on fertilized farmland, and every growth consumes manure.\nGrass drops seed with 10% chance when mined by effective tool.\nLakes and Underworld are drier.
 
 challenge.swarm_intelligence.title=Swarm Intelligence
 challenge.swarm_intelligence.description.short="Watch your back, they are going to follow you."

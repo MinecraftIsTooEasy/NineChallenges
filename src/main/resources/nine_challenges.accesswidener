@@ -1,5 +1,6 @@
 accessWidener v2 named
 
+# would be great to add comments with purposes
 accessible class net/minecraft/GuiWorldSlot
 accessible field net/minecraft/GuiScreen fontRenderer Lnet/minecraft/FontRenderer;
 accessible method net/minecraft/GuiIngame func_110327_a (II)V

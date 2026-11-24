@@ -1,4 +1,4 @@
-package vbonedra.nine_challenges.util.swarm_intelligence;
+package vbonedra.nine_challenges.util.hostile_champion.swarm_intelligence;
 
 import net.minecraft.EntityCreature;
 

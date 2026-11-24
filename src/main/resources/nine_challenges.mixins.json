@@ -26,7 +26,6 @@
     "challenges.barren_land.worldgen.trees.WorldGenBigTreeMixin",
     "challenges.barren_land.worldgen.trees.WorldGeneratorMixin",
     "challenges.barren_land.worldgen.trees.WorldGenHugeTreesMixin",
-    "challenges.barren_land.worldgen.trees.WorldGenThinLeavesMixin",
     "challenges.barren_land.worldgen.trees.WorldGenTreeGeneratorsMixin",
     "challenges.barren_land.worldgen.waterless.ChunkProviderUnderworldDelegateMixin",
     "challenges.barren_land.worldgen.waterless.ChunkProviderUnderworldMixin",

@@ -56,7 +56,6 @@ public abstract class EntityLivingBaseMixin extends Entity implements IHostileCh
                 if (!possibleHostileChampionTypes.isEmpty()) {
                     this.NC$setHostileChampionType(possibleHostileChampionTypes.toArray(new Byte[0])[this.rand.nextInt(possibleHostileChampionTypes.size())]);
                 }
-
             }
         }
     }
