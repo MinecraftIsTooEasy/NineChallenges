@@ -21,4 +21,9 @@ public final class HostileChampionTypeCache {
             iHostileChampionType.NC$setHostileChampionType(type);
         }
     }
+
+    public static void remove(int entityId) {
+        clientHostileChampionTypeMap.remove(entityId);
+    }
+
 }

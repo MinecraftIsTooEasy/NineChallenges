@@ -47,18 +47,14 @@ public class ItemArmorMixin {
 
         int newProtection = anchorProtection;
 
-        if (materialProtection != newProtection) {
-            if (materialProtection < newProtection) {
-                newProtection -= 1;
-            } else {
-                newProtection = (materialProtection <= 6) ? 3 : materialProtection - 3;
-            }
+        if (materialProtection > newProtection) {
+            newProtection = (materialProtection <= 6) ? 3 : materialProtection - 3;
         }
 
         if (itemArmor.isChainMail()) {
             newProtection -= 1;
         }
 
-        return Math.max(1, newProtection);
+        return Math.max(newProtection, 1);
     }
 }

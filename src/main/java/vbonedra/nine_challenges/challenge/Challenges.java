@@ -5,7 +5,6 @@ import net.minecraft.WorldInfo;
 
 public final class Challenges {
 
-    // client saved data
     private static volatile int clientMask = 0;
 
     public static ChallengeHolder holder(Object object) {
@@ -30,6 +29,14 @@ public final class Challenges {
 
     public static int getMask(WorldInfo worldInfo) {
         return worldInfo == null ? 0 : holder(worldInfo).nineChallenges$getChallengeMask();
+    }
+
+    public static int getServerMask() {
+        MinecraftServer server = MinecraftServer.getServer();
+        if (server != null && server.worldServers != null && server.worldServers[0] != null) {
+            return getMask(server.worldServers[0].getWorldInfo());
+        }
+        return 0;
     }
 
     public static boolean isChallengeEnabled(WorldInfo worldInfo, Challenge challenge) {

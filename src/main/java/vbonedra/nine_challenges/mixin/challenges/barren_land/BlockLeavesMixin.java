@@ -7,6 +7,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import vbonedra.nine_challenges.challenge.Challenge;
+import vbonedra.nine_challenges.challenge.Challenges;
 
 @Mixin(BlockLeaves.class)
 public abstract class BlockLeavesMixin {
@@ -33,6 +35,7 @@ public abstract class BlockLeavesMixin {
             index = 1
     )
     private int dropBlockAsEntityItem_FruitOnlyWithEffectiveTool(int itemId) {
+        if (!Challenges.isChallengeEnabled(Challenge.BARREN_LAND)) return itemId;
         if (!isFruit(itemId)) return itemId;
 
         BlockBreakInfo blockBreakInfo = currentInfo.get();
@@ -54,6 +57,7 @@ public abstract class BlockLeavesMixin {
             index = 1
     )
     private Item updateTick_NoRandomFruits(Item item) {
+        if (!Challenges.isChallengeEnabled(Challenge.BARREN_LAND)) return item;
         return (item == Item.appleRed || item == Item.orange || item == Item.banana) ? Item.stick : item;
     }
 }

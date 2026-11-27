@@ -15,7 +15,11 @@ public abstract class ServerConfigurationManagerMixin {
 
     @Inject(method = "initializeConnectionToPlayer", at = @At("TAIL"))
     private void initializeConnectionToPlayer_SendMaskFromServerToPlayer(INetworkManager par1INetworkManager, ServerPlayer par2EntityPlayerMP, CallbackInfo ci) {
-        int mask = Challenges.getMask(par2EntityPlayerMP.worldObj.getWorldInfo());
+        int mask = Challenges.getServerMask();
+        vbonedra.nine_challenges.NineChallengesMod.NINE_CHALLENGES_LOGGER.info(
+                "login mask={} dimWorldInfo={}", mask,
+                par2EntityPlayerMP.worldObj.getWorldInfo().getClass().getSimpleName());
+//        int mask = Challenges.getServerMask();
         NineChallengesNetwork.sendChallengeMask(par2EntityPlayerMP, mask);
     }
 

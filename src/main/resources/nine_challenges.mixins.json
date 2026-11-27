@@ -77,7 +77,8 @@
     "gui.WorldInfoMixin",
     "gui.WorldSettingsMixin",
     "network.NetClientHandlerMixin",
-    "network.ServerConfigurationManagerMixin"
+    "network.ServerConfigurationManagerMixin",
+    "network.WorldMixin"
   ],
   "injectors": {
     "defaultRequire": 1
