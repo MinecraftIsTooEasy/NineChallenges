@@ -38,6 +38,7 @@
     "challenges.hostile_champions.EntityBoneLordMixin",
     "challenges.hostile_champions.EntityCubicMixin",
     "challenges.hostile_champions.EntityLivingBaseMixin",
+    "challenges.hostile_champions.EntityNamesMixin",
     "challenges.hostile_champions.EntityTrackerEntryMixin",
     "challenges.hostile_champions.MinecraftMixin",
     "challenges.hostile_champions.ModelHorseMixin",
