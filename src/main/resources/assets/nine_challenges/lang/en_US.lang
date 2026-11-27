@@ -50,7 +50,7 @@ challenge.swarm_intelligence.description.detailed=Monsters share location of the
 
 challenge.into_darkness.title=Into Darkness
 challenge.into_darkness.description.short="You can barely see past your nose."
-challenge.into_darkness.description.detailed=True darkness.\nNew moon's light is too dark to see anything\nHell is in darkness.\nIn darkness hostiles spawn 12 times closer to player instead of 3 times closer.\nBeing in darkness slows player down by 20%.
+challenge.into_darkness.description.detailed=True darkness.\nNew moon's light is too dark to see anything\nHell and End is in darkness.\nDarkness slows player down by 20%.\nThere are 50% more monsters in the world.
 
 challenge.forbidden_runes.title=Forbidden Runes
 challenge.forbidden_runes.description.short="What a great world of magic! Huh? You forgot to learn the language?!"
