@@ -19,7 +19,7 @@ public final class Challenges {
         return getActiveMask() != 0;
     }
 
-    private static int getActiveMask() {
+    public static int getActiveMask() {
         MinecraftServer server = MinecraftServer.getServer();
         if (server != null && server.worldServers != null && server.worldServers[0] != null) {
             return getMask(server.worldServers[0].getWorldInfo());

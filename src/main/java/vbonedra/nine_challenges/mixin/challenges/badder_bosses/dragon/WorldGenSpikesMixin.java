@@ -24,7 +24,7 @@ public abstract class WorldGenSpikesMixin extends WorldGenerator {
     private void generate_MidCrystal(World world, Random random, int i, int j, int k, CallbackInfoReturnable<Boolean> cir) {
         if (!isChallengeEnabled(Challenge.BADDER_BOSSES)) return;
         if (!cir.getReturnValueZ()) return;
-        if (random.nextFloat() <= 0.25F && !EndPillarGenHelper.generateSecondCrystal) return;
+        if (random.nextFloat() >= 0.25F && !EndPillarGenHelper.generateSecondCrystal) return;
 
         int topY = j;
         while (topY < 128 && world.getBlockId(i, topY, k) == Block.obsidian.blockID) {
